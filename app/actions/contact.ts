@@ -6,64 +6,54 @@ export type ContactFormData = {
   name: string;
   email: string;
   inquiryType: string;
-  role: string;
   message: string;
+  website?: string;
 };
 
-export async function sendContactEmail(data: ContactFormData) {
-  const { name, email, inquiryType, role, message } = data;
+const LIMITS = { name: 100, email: 254, inquiryType: 60, message: 4000 } as const;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Use environment variables for sensitive info
-  const gmailUser = process.env.GMAIL_USER;
-  const gmailPass = process.env.GMAIL_APP_PASSWORD;
-  const recipientEmail = process.env.CONTACT_RECIPIENT || 'mas@filmclusive.com,james@aaronkoganmanagement.com';
+function clean(value: unknown, max: number) {
+  return typeof value === 'string' ? value.trim().slice(0, max) : '';
+}
 
-  if (!gmailUser || !gmailPass) {
-    console.error('SMTP configuration missing: GMAIL_USER or GMAIL_APP_PASSWORD not set.');
-    return { success: false, error: 'Email service not configured.' };
-  }
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]!);
+}
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: gmailUser,
-      pass: gmailPass,
-    },
-  });
+export async function sendContactEmail(input: ContactFormData) {
+  if (input.website) return { success: true };
 
-  const mailOptions = {
-    from: `"${name}" <${gmailUser}>`, // Gmail often overrides this, but good to have
-    to: recipientEmail,
-    replyTo: email,
-    subject: `Enemy Alien: ${inquiryType} from ${name} (${role})`,
-    text: `
-Name: ${name}
-Email: ${email}
-Role: ${role}
-Inquiry Type: ${inquiryType}
-
-Message:
-${message}
-    `,
-    html: `
-      <h2>New Contact Inquiry: Enemy Alien</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Role:</strong> ${role}</p>
-      <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
-      <br/>
-      <p><strong>Message:</strong></p>
-      <div style="white-space: pre-wrap; background: #f4f4f4; padding: 15px; border-radius: 5px; border-left: 4px solid #cc0000;">
-        ${message.replace(/\n/g, '<br/>')}
-      </div>
-    `,
+  const data = {
+    name: clean(input.name, LIMITS.name),
+    email: clean(input.email, LIMITS.email).toLowerCase(),
+    inquiryType: clean(input.inquiryType, LIMITS.inquiryType),
+    message: clean(input.message, LIMITS.message),
   };
 
+  if (!data.name || !EMAIL_PATTERN.test(data.email) || !data.inquiryType || data.message.length < 10) {
+    return { success: false, error: 'Please complete every field with valid information.' };
+  }
+
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+  const recipientEmail = process.env.CONTACT_RECIPIENT || 'cleanslateproduction@gmail.com';
+  if (!gmailUser || !gmailPass) return { success: false, error: 'Email service is not configured.' };
+
+  const safe = Object.fromEntries(Object.entries(data).map(([key, value]) => [key, escapeHtml(value)]));
   try {
-    await transporter.sendMail(mailOptions);
+    const transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: gmailUser, pass: gmailPass } });
+    await transporter.sendMail({
+      from: `"Clean Slate website" <${gmailUser}>`,
+      to: recipientEmail,
+      replyTo: data.email,
+      subject: `Clean Slate: ${data.inquiryType} from ${data.name}`,
+      text: `Name: ${data.name}\nEmail: ${data.email}\nInquiry: ${data.inquiryType}\n\n${data.message}`,
+      html: `<h2>New Clean Slate inquiry</h2><p><strong>Name:</strong> ${safe.name}</p><p><strong>Email:</strong> ${safe.email}</p><p><strong>Inquiry:</strong> ${safe.inquiryType}</p><p style="white-space:pre-wrap">${safe.message}</p>`,
+    });
     return { success: true };
-  } catch (error: any) {
-    console.error('Error sending email:', error);
-    return { success: false, error: error.message || 'Failed to send message.' };
+  } catch (error) {
+    console.error('Contact email failed', error instanceof Error ? error.message : 'Unknown error');
+    return { success: false, error: 'Message could not be sent. Please email the production directly.' };
   }
 }

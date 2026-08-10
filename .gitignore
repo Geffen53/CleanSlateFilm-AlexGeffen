@@ -53,3 +53,8 @@ dist-ssr/
 
 # Project specific
 public/data/
+
+# Local production source assets (never deploy or commit)
+/local-assets/
+/public/Cleanslatefilm-assets/
+/public/media/press/*.pdf

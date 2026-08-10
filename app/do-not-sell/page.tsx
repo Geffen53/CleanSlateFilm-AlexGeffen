@@ -1,24 +1,8 @@
-// app/do-not-sell/page.tsx
-import * as React from 'react';
-import { Metadata } from 'next';
-import { Suspense } from 'react';
-import DoNotSellOrSharePageContent from '@/components/DoNotSellOrSharePage';
+import type { Metadata } from 'next';
+import PageIntro from '@/components/PageIntro';
 
-export const metadata: Metadata = {
-  title: 'Do Not Sell or Share My Personal Information | Enemy Alien',
-  description: 'Manage your privacy choices regarding the sale or sharing of your personal information under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA).',
-};
+export const metadata: Metadata = { title: 'Do Not Sell or Share' };
 
-export default function DoNotSellOrSharePage() {
-  return (
-    <Suspense fallback={
-      <div className="pt-32 pb-12 px-6 bg-white dark:bg-black min-h-app flex flex-col items-center justify-center text-center pb-safe">
-        <div className="animate-pulse text-[10px] uppercase tracking-widest text-neutral-400">
-          Loading privacy options...
-        </div>
-      </div>
-    }>
-      <DoNotSellOrSharePageContent />
-    </Suspense>
-  );
+export default function DoNotSellPage() {
+  return <><PageIntro title="Do not sell or share" copy="Your privacy choices for information submitted through this website." compact /><section className="section-rule bg-panel py-20"><div className="page-shell max-w-3xl space-y-6 text-sm leading-7 text-muted"><p>We do not sell personal information submitted through the contact form.</p><p>For a privacy request, email <a className="font-semibold text-ink underline decoration-accent decoration-2 underline-offset-4" href="mailto:cleanslateproduction@gmail.com">cleanslateproduction@gmail.com</a>.</p></div></section></>;
 }

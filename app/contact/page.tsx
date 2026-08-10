@@ -1,23 +1,14 @@
-'use client';
-
-import * as React from 'react';
-import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import ContactPage from '@/components/ContactPage';
+import PageIntro from '@/components/PageIntro';
 
-function ContactContent() {
-  return <ContactPage />;
-}
+export const metadata: Metadata = { title: 'Contact', description: 'Contact the Clean Slate production team.' };
 
 export default function Contact() {
   return (
-    <Suspense fallback={
-      <div className="pt-32 pb-12 px-6 bg-white dark:bg-black min-h-app flex flex-col items-center justify-center text-center pb-safe">
-        <div className="animate-pulse text-[10px] uppercase tracking-widest text-neutral-400">
-          Loading contact form...
-        </div>
-      </div>
-    }>
-      <ContactContent />
-    </Suspense>
+    <>
+      <PageIntro title="Contact" copy="Connect with the Clean Slate team for press, festival, screening, and production inquiries." compact />
+      <section className="section-rule bg-panel py-20 md:py-28"><div className="page-shell"><ContactPage /></div></section>
+    </>
   );
 }
