@@ -12,6 +12,7 @@ export type ContactFormData = {
 
 const LIMITS = { name: 100, email: 254, inquiryType: 60, message: 4000 } as const;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
 
 function clean(value: unknown, max: number) {
   return typeof value === 'string' ? value.trim().slice(0, max) : '';
@@ -19,6 +20,20 @@ function clean(value: unknown, max: number) {
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]!);
+}
+
+function getTransporter(user: string, pass: string) {
+  transporter ??= nodemailer.createTransport({
+    service: 'gmail',
+    pool: true,
+    maxConnections: 1,
+    maxMessages: 50,
+    connectionTimeout: 8_000,
+    greetingTimeout: 8_000,
+    socketTimeout: 12_000,
+    auth: { user, pass },
+  });
+  return transporter;
 }
 
 export async function sendContactEmail(input: ContactFormData) {
@@ -42,8 +57,7 @@ export async function sendContactEmail(input: ContactFormData) {
 
   const safe = Object.fromEntries(Object.entries(data).map(([key, value]) => [key, escapeHtml(value)]));
   try {
-    const transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: gmailUser, pass: gmailPass } });
-    await transporter.sendMail({
+    await getTransporter(gmailUser, gmailPass).sendMail({
       from: `"Clean Slate website" <${gmailUser}>`,
       to: recipientEmail,
       replyTo: data.email,

@@ -17,8 +17,8 @@ export default function PressPage() {
         </div>
       </section>
       <section className="py-20 md:py-28"><div className="page-shell"><h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Selections & recognition</h2><div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <article key={festival.name} className="bg-panel p-7"><p className="mb-3 text-sm font-medium text-muted">{festival.recognition}</p><h3 className="text-xl font-semibold leading-7">{festival.name}</h3><p className="mt-4 text-sm leading-6 text-muted">{festival.location && <>{festival.location}<br /></>}{festival.date}</p></article>)}</div></div></section>
-      <section id="gallery" className="section-rule bg-panel py-20 md:py-28"><div className="page-shell"><h2 className="mb-12 text-3xl font-semibold tracking-tight md:text-5xl">Film stills</h2><GalleryGrid images={stills} /></div></section>
-      <section className="py-20 md:py-28"><div className="page-shell"><h2 className="mb-12 text-3xl font-semibold tracking-tight md:text-5xl">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
+      <section id="gallery" className="render-deferred section-rule bg-panel py-20 md:py-28"><div className="page-shell"><h2 className="mb-12 text-3xl font-semibold tracking-tight md:text-5xl">Film stills</h2><GalleryGrid images={stills} /></div></section>
+      <section className="render-deferred py-20 md:py-28"><div className="page-shell"><h2 className="mb-12 text-3xl font-semibold tracking-tight md:text-5xl">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
     </>
   );
 }

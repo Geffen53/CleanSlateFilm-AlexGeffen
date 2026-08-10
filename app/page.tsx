@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import FilmFacts from '@/components/FilmFacts';
+import IntentLink from '@/components/IntentLink';
 import { festivals, film, stills } from '@/data/film';
 
 export default function HomePage() {
@@ -15,11 +15,11 @@ export default function HomePage() {
             <p className="mt-7 max-w-xl text-lg font-semibold leading-8 md:text-xl">{film.tagline}</p>
             <p className="body-copy mt-5 max-w-xl">{film.synopsis}</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/film" prefetch className="bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:bg-navy">Discover the film</Link>
-              <Link href="/videos" prefetch className="border border-line px-6 py-3 text-sm font-semibold transition hover:bg-panel">Trailer</Link>
+              <IntentLink href="/film" className="bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:bg-navy">Discover the film</IntentLink>
+              <IntentLink href="/videos" className="border border-line px-6 py-3 text-sm font-semibold transition hover:bg-panel">Trailer</IntentLink>
             </div>
           </Reveal>
-          <Reveal delay={0.12} className="relative mx-auto w-full max-w-xl md:justify-self-end">
+          <Reveal className="relative mx-auto w-full max-w-xl md:justify-self-end">
             <div className="relative aspect-[3/4] max-h-[690px] overflow-hidden rounded-2xl bg-navy shadow-2xl shadow-black/20">
               <Image src="/media/clean-slate-poster.jpg" alt="Clean Slate poster" fill priority sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
             </div>
@@ -40,11 +40,11 @@ export default function HomePage() {
         <div className="page-shell">
           <div className="mb-10 flex items-end justify-between gap-6">
             <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Inside the story</h2>
-            <Link href="/press#gallery" className="hidden text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 sm:block">View gallery</Link>
+            <IntentLink href="/press#gallery" className="hidden text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 sm:block">View gallery</IntentLink>
           </div>
           <div className="grid gap-4 md:grid-cols-12">
             {stills.slice(3, 6).map((still, index) => (
-              <Reveal key={still.src} delay={index * 0.08} className={index === 0 ? 'md:col-span-7' : 'md:col-span-5'}>
+              <Reveal key={still.src} className={index === 0 ? 'md:col-span-7' : 'md:col-span-5'}>
                 <figure>
                   <div className="relative aspect-video overflow-hidden rounded-2xl bg-panel">
                     <Image src={still.src} alt={still.alt} fill sizes="(min-width: 768px) 58vw, 100vw" className="object-cover transition duration-700 hover:scale-[1.02]" />

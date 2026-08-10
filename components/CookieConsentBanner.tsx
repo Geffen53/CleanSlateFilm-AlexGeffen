@@ -3,21 +3,20 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Shield, X } from 'lucide-react';
-import { useCookieConsent } from '@/context/cookie-consent';
+import { useCookieConsentActions, useCookieConsentState } from '@/context/cookie-consent';
 import { useGpcDetection } from '@/hooks/useGpcDetection';
 
 export function CookieConsentBanner({ className = '' }: { className?: string }) {
-  const { preferences, showBanner, acceptAll, rejectNonEssential, updatePreferences, closeBanner } = useCookieConsent();
+  const { preferences, showBanner } = useCookieConsentState();
+  const { acceptAll, rejectNonEssential, updatePreferences, closeBanner } = useCookieConsentActions();
   const { gpcEnabled, gpcChecked } = useGpcDetection();
-  const [mounted, setMounted] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (gpcChecked && gpcEnabled && preferences?.analytics !== false) updatePreferences({ analytics: false });
   }, [gpcChecked, gpcEnabled, preferences?.analytics, updatePreferences]);
 
-  if (!mounted || !showBanner) return null;
+  if (!showBanner) return null;
 
   return (
     <aside aria-label="Privacy choices" className={`fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-4xl border border-line bg-panel p-4 shadow-2xl shadow-black/20 ${className}`}>
@@ -47,7 +46,7 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
             <span className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow transition ${preferences?.analytics === true ? 'left-6' : 'left-1'}`} />
             <span className="sr-only">Toggle anonymous analytics</span>
           </button>
-          <p className="text-xs text-muted sm:col-span-2">Read the <Link href="/privacy" className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy policy</Link> or manage a <Link href="/do-not-sell" className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy request</Link>.</p>
+          <p className="text-xs text-muted sm:col-span-2">Read the <Link href="/privacy" prefetch={false} className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy policy</Link> or manage a <Link href="/do-not-sell" prefetch={false} className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy request</Link>.</p>
         </div>
       )}
     </aside>

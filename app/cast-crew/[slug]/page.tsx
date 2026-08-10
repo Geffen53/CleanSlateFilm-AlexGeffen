@@ -2,31 +2,35 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { cast } from '@/data/cast';
+import { allPeople, findPersonBySlug, getPersonSlug } from '@/data/people';
 
 type ProfilePageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return cast.map((person) => ({ slug: person.slug! }));
+  return allPeople.map((person) => ({ slug: getPersonSlug(person) }));
 }
 
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const person = cast.find((member) => member.slug === slug);
-  return person ? { title: person.name, description: `${person.name} plays ${person.role} in Clean Slate.` } : {};
+  const person = findPersonBySlug(slug);
+  return person ? { title: person.name, description: `${person.name}, ${person.role} on Clean Slate.` } : {};
 }
 
 export default async function CastProfilePage({ params }: ProfilePageProps) {
   const { slug } = await params;
-  const person = cast.find((member) => member.slug === slug);
+  const person = findPersonBySlug(slug);
   if (!person) notFound();
 
   return (
     <article className="page-shell pb-24 pt-32 md:pb-32 md:pt-40">
-      <Link href="/cast-crew" className="text-sm font-semibold text-muted hover:text-ink">← Cast & Crew</Link>
+      <Link href="/cast-crew" prefetch={false} className="text-sm font-semibold text-muted hover:text-ink">← Cast & Crew</Link>
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-navy/10">
-          <Image src={person.image!} alt={person.name} fill priority sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" style={{ objectPosition: person.imagePosition ?? 'center' }} />
+          {person.image ? (
+            <Image src={person.image} alt={person.name} fill priority sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" style={{ objectPosition: person.imagePosition ?? 'center' }} />
+          ) : (
+            <div className="flex h-full items-end bg-navy p-8 text-paper"><span className="wordmark text-5xl">CS</span></div>
+          )}
         </div>
         <div className="lg:pt-8">
           <p className="text-base font-medium text-muted">{person.role}</p>

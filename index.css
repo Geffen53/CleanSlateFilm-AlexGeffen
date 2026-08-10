@@ -20,7 +20,6 @@
   --line: #cbd1d2;
   --navy: #153244;
   --accent: #e1b72d;
-  --app-height: 100dvh;
   color-scheme: light;
 }
 
@@ -48,7 +47,6 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: Verdana, Inter, sans-serif;
-  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -85,12 +83,15 @@ a, button, summary, input, select, textarea { outline-offset: 4px; }
   background-image:
     repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgb(20 35 44 / 8%) 4px),
     radial-gradient(circle at 20% 30%, rgb(255 255 255 / 35%), transparent 45%);
-  mix-blend-mode: multiply;
 }
 
 .dark .paper-surface::before {
   opacity: 0.08;
-  mix-blend-mode: screen;
+}
+
+.render-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 .wordmark {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { AlertCircle, CheckCircle2, Send } from 'lucide-react';
 import { sendContactEmail, type ContactFormData } from '@/app/actions/contact';
 import { film } from '@/data/film';
@@ -9,23 +9,31 @@ const initialData: ContactFormData = { name: '', email: '', inquiryType: 'Genera
 
 export default function ContactPage() {
   const [formData, setFormData] = useState(initialData);
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
+  const [isPending, startTransition] = useTransition();
 
   const update = (field: keyof ContactFormData, value: string) => setFormData((current) => ({ ...current, [field]: value }));
 
-  async function submit(event: React.FormEvent<HTMLFormElement>) {
+  function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setStatus('sending');
+    if (isPending) return;
     setError('');
-    const result = await sendContactEmail(formData);
-    if (result.success) {
-      setStatus('success');
-      setFormData(initialData);
-    } else {
-      setStatus('error');
-      setError(result.error || 'Message could not be sent.');
-    }
+    startTransition(async () => {
+      try {
+        const result = await sendContactEmail(formData);
+        if (result.success) {
+          setStatus('success');
+          setFormData(initialData);
+          return;
+        }
+        setStatus('error');
+        setError(result.error || 'Message could not be sent.');
+      } catch {
+        setStatus('error');
+        setError('Message could not be sent. Please try again.');
+      }
+    });
   }
 
   return (
@@ -50,8 +58,8 @@ export default function ContactPage() {
         </label>
         <label className="grid gap-2 text-sm font-semibold">Message<textarea required minLength={10} maxLength={4000} rows={7} value={formData.message} onChange={(event) => update('message', event.target.value)} className="border border-line bg-panel p-4 font-normal text-ink" /></label>
         <label className="absolute -left-[9999px]" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={formData.website} onChange={(event) => update('website', event.target.value)} /></label>
-        <button disabled={status === 'sending'} className="inline-flex min-h-12 items-center gap-3 bg-ink px-6 text-sm font-semibold text-paper transition hover:bg-navy disabled:opacity-50">
-          <Send size={17} />{status === 'sending' ? 'Sending…' : 'Send inquiry'}
+        <button disabled={isPending} className="inline-flex min-h-12 items-center gap-3 bg-ink px-6 text-sm font-semibold text-paper transition hover:bg-navy disabled:opacity-50">
+          <Send size={17} />{isPending ? 'Sending…' : 'Send inquiry'}
         </button>
       </form>
     </div>

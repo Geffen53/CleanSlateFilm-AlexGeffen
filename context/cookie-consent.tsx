@@ -1,11 +1,14 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { getCookieConsent, setCookieConsent, CookiePreferences } from '@/utils/cookie-consent';
 
-interface CookieConsentContextType {
+interface CookieConsentState {
   preferences: CookiePreferences | null;
   showBanner: boolean;
+}
+
+interface CookieConsentActions {
   acceptAll: () => void;
   rejectNonEssential: () => void;
   updatePreferences: (prefs: Partial<CookiePreferences>) => void;
@@ -13,9 +16,10 @@ interface CookieConsentContextType {
   closeBanner: () => void;
 }
 
-const CookieConsentContext = createContext<CookieConsentContextType | undefined>(undefined);
+const CookieConsentStateContext = createContext<CookieConsentState | undefined>(undefined);
+const CookieConsentActionsContext = createContext<CookieConsentActions | undefined>(undefined);
 
-export function CookieConsentProvider({ children }: { children: React.ReactNode }) {
+export function CookieConsentProvider({ children }: { children: ReactNode }) {
   const [preferences, setPreferences] = useState<CookiePreferences | null>(null);
   const [showBanner, setShowBanner] = useState(false);
 
@@ -56,28 +60,31 @@ export function CookieConsentProvider({ children }: { children: React.ReactNode 
 
   const openBanner = useCallback(() => setShowBanner(true), []);
   const closeBanner = useCallback(() => setShowBanner(false), []);
+  const state = useMemo(() => ({ preferences, showBanner }), [preferences, showBanner]);
+  const actions = useMemo(
+    () => ({ acceptAll, rejectNonEssential, updatePreferences, openBanner, closeBanner }),
+    [acceptAll, rejectNonEssential, updatePreferences, openBanner, closeBanner],
+  );
 
   return (
-    <CookieConsentContext.Provider
-      value={{
-        preferences,
-        showBanner,
-        acceptAll,
-        rejectNonEssential,
-        updatePreferences,
-        openBanner,
-        closeBanner,
-      }}
-    >
-      {children}
-    </CookieConsentContext.Provider>
+    <CookieConsentActionsContext.Provider value={actions}>
+      <CookieConsentStateContext.Provider value={state}>{children}</CookieConsentStateContext.Provider>
+    </CookieConsentActionsContext.Provider>
   );
 }
 
-export function useCookieConsent() {
-  const context = useContext(CookieConsentContext);
+export function useCookieConsentState() {
+  const context = useContext(CookieConsentStateContext);
   if (context === undefined) {
-    throw new Error('useCookieConsent must be used within a CookieConsentProvider');
+    throw new Error('useCookieConsentState must be used within a CookieConsentProvider');
+  }
+  return context;
+}
+
+export function useCookieConsentActions() {
+  const context = useContext(CookieConsentActionsContext);
+  if (context === undefined) {
+    throw new Error('useCookieConsentActions must be used within a CookieConsentProvider');
   }
   return context;
 }

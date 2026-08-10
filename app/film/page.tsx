@@ -18,7 +18,7 @@ export default function FilmPage() {
               <Image src="/media/stills/eric-trevor.jpg" alt="Eric and Trevor confront each other" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
             </div>
           </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-5">
+          <Reveal className="lg:col-span-5">
             <p className="text-2xl font-semibold leading-snug tracking-tight">{film.synopsis}</p>
             <p className="body-copy mt-6">{film.descriptor}</p>
           </Reveal>

@@ -3,6 +3,7 @@ import { Providers } from './providers';
 import NavbarWrapper from '@/components/NavbarWrapper';
 import FooterWrapper from '@/components/FooterWrapper';
 import { CookieConsentBanner } from '@/components/CookieConsentBanner';
+import { CookieConsentProvider } from '@/context/cookie-consent';
 import { film } from '@/data/film';
 import '../index.css';
 
@@ -47,14 +48,16 @@ const movieJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
           <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 bg-ink px-5 py-3 text-sm text-paper focus:translate-y-0">Skip to content</a>
           <NavbarWrapper />
           <main id="main-content" tabIndex={-1}>{children}</main>
-          <FooterWrapper />
-          <CookieConsentBanner />
+          <CookieConsentProvider>
+            <FooterWrapper />
+            <CookieConsentBanner />
+          </CookieConsentProvider>
         </Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(movieJsonLd) }} />
       </body>
