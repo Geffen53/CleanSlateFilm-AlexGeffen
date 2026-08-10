@@ -12,7 +12,21 @@ export type ContactFormData = {
 
 const LIMITS = { name: 100, email: 254, inquiryType: 60, message: 4000 } as const;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
+
+function createGmailTransport(user: string, pass: string) {
+  return nodemailer.createTransport({
+    service: 'gmail',
+    pool: true,
+    maxConnections: 1,
+    maxMessages: 50,
+    connectionTimeout: 8_000,
+    greetingTimeout: 8_000,
+    socketTimeout: 12_000,
+    auth: { user, pass },
+  });
+}
+
+let transporter: ReturnType<typeof createGmailTransport> | null = null;
 
 function clean(value: unknown, max: number) {
   return typeof value === 'string' ? value.trim().slice(0, max) : '';
@@ -23,16 +37,7 @@ function escapeHtml(value: string) {
 }
 
 function getTransporter(user: string, pass: string) {
-  transporter ??= nodemailer.createTransport({
-    service: 'gmail',
-    pool: true,
-    maxConnections: 1,
-    maxMessages: 50,
-    connectionTimeout: 8_000,
-    greetingTimeout: 8_000,
-    socketTimeout: 12_000,
-    auth: { user, pass },
-  });
+  transporter ??= createGmailTransport(user, pass);
   return transporter;
 }
 
