@@ -9,10 +9,10 @@ export default function VideosPage() {
   return (
     <>
       <PageIntro title="Videos" copy="Official video from Clean Slate will be available here." compact />
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-20">
         <div className="page-shell">
           <article className="bg-panel p-3 md:p-5">
-            <div className="relative aspect-video overflow-hidden rounded-2xl bg-navy">
+            <div className="relative aspect-video overflow-hidden rounded-md bg-navy">
               <Image src="/media/trailer-artwork.jpg" alt="Clean Slate official trailer artwork" fill priority sizes="100vw" className="object-cover" />
             </div>
             <div className="flex flex-col gap-4 px-2 py-6 sm:flex-row sm:items-end sm:justify-between md:px-4">

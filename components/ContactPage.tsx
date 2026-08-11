@@ -1,67 +1,27 @@
-'use client';
-
-import { useState, useTransition } from 'react';
-import { AlertCircle, CheckCircle2, Send } from 'lucide-react';
-import { sendContactEmail, type ContactFormData } from '@/app/actions/contact';
+import { ExternalLink, Mail } from 'lucide-react';
 import { film } from '@/data/film';
 
-const initialData: ContactFormData = { name: '', email: '', inquiryType: 'General inquiry', message: '', website: '' };
+const inquiryHref = `mailto:${film.contactEmail}?subject=${encodeURIComponent('Clean Slate inquiry')}`;
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState(initialData);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [error, setError] = useState('');
-  const [isPending, startTransition] = useTransition();
-
-  const update = (field: keyof ContactFormData, value: string) => setFormData((current) => ({ ...current, [field]: value }));
-
-  function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (isPending) return;
-    setError('');
-    startTransition(async () => {
-      try {
-        const result = await sendContactEmail(formData);
-        if (result.success) {
-          setStatus('success');
-          setFormData(initialData);
-          return;
-        }
-        setStatus('error');
-        setError(result.error || 'Message could not be sent.');
-      } catch {
-        setStatus('error');
-        setError('Message could not be sent. Please try again.');
-      }
-    });
-  }
-
   return (
-    <div className="grid gap-14 lg:grid-cols-[0.75fr_1.25fr]">
-      <aside>
-        <a href={`mailto:${film.contactEmail}`} className="break-all text-lg font-semibold underline decoration-accent decoration-2 underline-offset-4">{film.contactEmail}</a>
-        <p className="mt-6 text-sm leading-7 text-muted">For press, festival, screening, partnership, and general production inquiries.</p>
-        <a href={film.imdbUrl} target="_blank" rel="noreferrer" className="mt-8 inline-block text-sm font-semibold">IMDb ↗</a>
-      </aside>
-
-      <form onSubmit={submit} className="space-y-6" noValidate>
-        {status === 'success' && <div role="status" className="flex gap-3 bg-panel p-4 text-sm"><CheckCircle2 className="text-navy dark:text-accent" size={20} />Message sent. The production team will be in touch.</div>}
-        {status === 'error' && <div role="alert" className="flex gap-3 bg-panel p-4 text-sm text-red-700 dark:text-red-300"><AlertCircle size={20} />{error}</div>}
-        <div className="grid gap-6 sm:grid-cols-2">
-          <label className="grid gap-2 text-sm font-semibold">Name<input required maxLength={100} autoComplete="name" value={formData.name} onChange={(event) => update('name', event.target.value)} className="min-h-12 border border-line bg-panel px-4 font-normal text-ink" /></label>
-          <label className="grid gap-2 text-sm font-semibold">Email<input required maxLength={254} type="email" autoComplete="email" value={formData.email} onChange={(event) => update('email', event.target.value)} className="min-h-12 border border-line bg-panel px-4 font-normal text-ink" /></label>
+    <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <div>
+        <p className="eyebrow">Production contact</p>
+        <h2 className="section-title mt-2">Start a conversation</h2>
+      </div>
+      <div className="lg:justify-self-end">
+        <p className="max-w-xl text-sm leading-6 text-muted">
+          Press, festival, screening, partnership, and production inquiries go directly to the Clean Slate team.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <a href={inquiryHref} className="action-primary gap-2"><Mail size={17} />Send an inquiry</a>
+          <a href={film.imdbUrl} target="_blank" rel="noreferrer" className="action-secondary gap-2">IMDb <ExternalLink size={15} /></a>
         </div>
-        <label className="grid gap-2 text-sm font-semibold">Inquiry
-          <select value={formData.inquiryType} onChange={(event) => update('inquiryType', event.target.value)} className="min-h-12 border border-line bg-panel px-4 font-normal text-ink">
-            <option>General inquiry</option><option>Press</option><option>Festival</option><option>Screening</option><option>Partnership</option>
-          </select>
-        </label>
-        <label className="grid gap-2 text-sm font-semibold">Message<textarea required minLength={10} maxLength={4000} rows={7} value={formData.message} onChange={(event) => update('message', event.target.value)} className="border border-line bg-panel p-4 font-normal text-ink" /></label>
-        <label className="absolute -left-[9999px]" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={formData.website} onChange={(event) => update('website', event.target.value)} /></label>
-        <button disabled={isPending} className="inline-flex min-h-12 items-center gap-3 bg-ink px-6 text-sm font-semibold text-paper transition hover:bg-navy disabled:opacity-50">
-          <Send size={17} />{isPending ? 'Sending…' : 'Send inquiry'}
-        </button>
-      </form>
+        <a href={`mailto:${film.contactEmail}`} className="mt-4 inline-block break-all text-sm text-muted transition hover:text-ink">
+          {film.contactEmail}
+        </a>
+      </div>
     </div>
   );
 }

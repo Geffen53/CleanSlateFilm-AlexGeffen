@@ -6,7 +6,7 @@ export const film = {
   synopsis:
     'When a new government-sanctioned program is implemented to reduce prison numbers by erasing violent offenders’ memories, the retribution falls to the survivors of their victims.',
   descriptor: 'A dystopian sci-fi that tackles social issues and the ripple effects of trauma.',
-  contactEmail: 'cleanslateproduction@gmail.com',
+  contactEmail: 'CleanSlateProduction@gmail.com',
   imdbUrl: 'https://www.imdb.com/title/tt36970118/',
   trailerUrl: null as string | null,
   pressKit: 'https://media.cleanslatefilm.com/press/clean-slate-press-kit.pdf',
@@ -68,25 +68,25 @@ export const festivals: Festival[] = [
 ];
 
 export const stills: GalleryImage[] = [
-  { src: '/media/stills/katie-truth.jpg', alt: 'Katie discovers the truth in the kitchen', caption: 'Katie sees the truth' },
-  { src: '/media/stills/heather.jpg', alt: 'Heather in the kitchen', caption: 'Heather in pain' },
-  { src: '/media/stills/interview.jpg', alt: 'Dr. Miller and Interviewer Leslie', caption: 'The interview' },
-  { src: '/media/stills/mail.jpg', alt: 'Eric waving near the mailbox', caption: 'Mail time' },
-  { src: '/media/stills/eric-trevor.jpg', alt: 'Eric and Trevor confronting each other', caption: 'Eric versus Trevor' },
-  { src: '/media/stills/trevor.jpg', alt: 'Trevor confronting Eric', caption: 'You remember me' },
-  { src: '/media/stills/eric-crib.jpg', alt: 'Close-up of Eric by the crib', caption: 'Eric at the crib' },
-  { src: '/media/stills/trevor-crib.jpg', alt: 'Close-up of Trevor by the crib', caption: 'Trevor at the crib' },
-  { src: '/media/stills/crib-wide.jpg', alt: 'Trevor finding Mackenzie in the crib', caption: 'Trevor finds Mackenzie' },
+  { src: '/media/stills/katie-truth.jpg', alt: 'Katie discovers the truth in the kitchen', caption: 'Katie sees the truth', width: 1800, height: 1012 },
+  { src: '/media/stills/heather.jpg', alt: 'Heather in the kitchen', caption: 'Heather in pain', width: 1800, height: 1012 },
+  { src: '/media/stills/interview.jpg', alt: 'Dr. Miller and Interviewer Leslie', caption: 'The interview', width: 1800, height: 1012 },
+  { src: '/media/stills/mail.jpg', alt: 'Eric waving near the mailbox', caption: 'Mail time', width: 1800, height: 1012 },
+  { src: '/media/stills/eric-trevor.jpg', alt: 'Eric and Trevor confronting each other', caption: 'Eric versus Trevor', width: 1800, height: 1012 },
+  { src: '/media/stills/trevor.jpg', alt: 'Trevor confronting Eric', caption: 'You remember me', width: 1800, height: 1012 },
+  { src: '/media/stills/eric-crib.jpg', alt: 'Close-up of Eric by the crib', caption: 'Eric at the crib', width: 1800, height: 1012 },
+  { src: '/media/stills/trevor-crib.jpg', alt: 'Close-up of Trevor by the crib', caption: 'Trevor at the crib', width: 1800, height: 1012 },
+  { src: '/media/stills/crib-wide.jpg', alt: 'Trevor finding Mackenzie in the crib', caption: 'Trevor finds Mackenzie', width: 1800, height: 1012 },
 ];
 
 export const btsImages: GalleryImage[] = [
-  { src: '/media/bts/cast-final-day.jpg', alt: 'Clean Slate cast on the final day', caption: 'Cast — final day' },
-  { src: '/media/bts/cast-crew.jpg', alt: 'Clean Slate cast and crew together', caption: 'End of location one' },
-  { src: '/media/bts/alex-cass.jpg', alt: 'Alex Geffen and Cass Huckabay on set', caption: 'Alex Geffen and Cass Huckabay' },
-  { src: '/media/bts/playback.jpg', alt: 'Cass Huckabay and Michael Cunningham reviewing playback', caption: 'Reviewing playback' },
-  { src: '/media/bts/living-room-direction.jpg', alt: 'Alex Geffen discussing the living room scene', caption: 'Living room scene' },
-  { src: '/media/bts/mail-time.jpg', alt: 'Kendall Footé preparing the mail scene', caption: 'Mail time' },
-  { src: '/media/bts/final-shot.jpg', alt: 'Directors viewing the final shot', caption: 'The final shot' },
-  { src: '/media/bts/outdoor-crew.jpg', alt: 'Crew preparing an outdoor shot', caption: 'Preparing the outdoor shots' },
-  { src: '/media/bts/mail-directors.jpg', alt: 'Alex Geffen and Cass Huckabay at the mailbox set', caption: 'Between takes' },
+  { src: '/media/bts/cast-final-day.jpg', alt: 'Clean Slate cast on the final day', caption: 'Cast — final day', width: 1600, height: 1305 },
+  { src: '/media/bts/cast-crew.jpg', alt: 'Clean Slate cast and crew together', caption: 'End of location one', width: 1600, height: 1066 },
+  { src: '/media/bts/alex-cass.jpg', alt: 'Alex Geffen and Cass Huckabay on set', caption: 'Alex Geffen and Cass Huckabay', width: 1600, height: 1066 },
+  { src: '/media/bts/playback.jpg', alt: 'Cass Huckabay and Michael Cunningham reviewing playback', caption: 'Reviewing playback', width: 1600, height: 1066 },
+  { src: '/media/bts/living-room-direction.jpg', alt: 'Alex Geffen discussing the living room scene', caption: 'Living room scene', width: 1600, height: 1066 },
+  { src: '/media/bts/mail-time.jpg', alt: 'Kendall Footé preparing the mail scene', caption: 'Mail time', width: 1600, height: 1066 },
+  { src: '/media/bts/final-shot.jpg', alt: 'Directors viewing the final shot', caption: 'The final shot', width: 1600, height: 1066 },
+  { src: '/media/bts/outdoor-crew.jpg', alt: 'Crew preparing an outdoor shot', caption: 'Preparing the outdoor shots', width: 1600, height: 1066 },
+  { src: '/media/bts/mail-directors.jpg', alt: 'Alex Geffen and Cass Huckabay at the mailbox set', caption: 'Between takes', width: 1600, height: 1066 },
 ];

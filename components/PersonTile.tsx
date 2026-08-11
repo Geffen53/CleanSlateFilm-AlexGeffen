@@ -4,7 +4,7 @@ import type { PersonPreview } from '@/data/people';
 
 export default function PersonTile({ person, href }: { person: PersonPreview; href?: string }) {
   const portrait = (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-navy/10">
+    <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-navy/10">
       {person.image ? (
         <Image
           src={person.image}
@@ -27,7 +27,7 @@ export default function PersonTile({ person, href }: { person: PersonPreview; hr
       <div className="pt-4">
         <p className="text-xs font-medium leading-5 text-muted sm:text-sm">{person.role}</p>
         <h3 className="mt-1 break-words text-base font-semibold leading-tight tracking-tight sm:text-xl">
-          {href ? <Link href={href} prefetch={false} className="hover:text-navy dark:hover:text-accent">{person.name}</Link> : person.name}
+          {href ? <Link href={href} prefetch={false} className="rounded-sm transition hover:text-navy dark:hover:text-accent">{person.name}</Link> : person.name}
         </h3>
         {person.knownFor && <p className="mt-2 text-xs leading-5 text-muted sm:mt-3 sm:text-sm sm:leading-6">{person.knownFor}</p>}
       </div>

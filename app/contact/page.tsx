@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <>
       <PageIntro title="Contact" copy="Connect with the Clean Slate team for press, festival, screening, and production inquiries." compact />
-      <section className="section-rule bg-panel py-20 md:py-28"><div className="page-shell"><ContactPage /></div></section>
+      <section className="section-rule bg-panel py-12 md:py-16"><div className="page-shell"><ContactPage /></div></section>
     </>
   );
 }

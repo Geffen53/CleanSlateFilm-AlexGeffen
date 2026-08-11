@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import { Providers } from './providers';
 import NavbarWrapper from '@/components/NavbarWrapper';
 import FooterWrapper from '@/components/FooterWrapper';
@@ -7,10 +8,16 @@ import { CookieConsentProvider } from '@/context/cookie-consent';
 import { film } from '@/data/film';
 import '../index.css';
 
+const progress = localFont({
+  src: '../public/ProgressPersonalUse-EaJdz.ttf',
+  variable: '--font-progress',
+  display: 'swap',
+});
+
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f3f1eb' },
-    { media: '(prefers-color-scheme: dark)', color: '#080c0f' },
+    { media: '(prefers-color-scheme: light)', color: '#f7f7f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#090d0e' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -49,11 +56,11 @@ const movieJsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <body className={`${progress.variable} flex min-h-screen flex-col font-sans antialiased`}>
         <Providers>
           <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 bg-ink px-5 py-3 text-sm text-paper focus:translate-y-0">Skip to content</a>
           <NavbarWrapper />
-          <main id="main-content" tabIndex={-1}>{children}</main>
+          <main id="main-content" className="flex-1" tabIndex={-1}>{children}</main>
           <CookieConsentProvider>
             <FooterWrapper />
             <CookieConsentBanner />
