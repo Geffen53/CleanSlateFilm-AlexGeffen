@@ -17,8 +17,8 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,11,12,0.92)_0%,rgba(5,11,12,0.72)_55%,rgba(5,11,12,0.42)_100%)]" />
 
-        <div className="page-shell grid min-h-[calc(100svh-4rem)] grid-cols-[minmax(0,1fr)_5.5rem] items-center gap-5 py-10 sm:grid-cols-[minmax(0,1fr)_7rem] md:grid-cols-[minmax(0,1fr)_clamp(14rem,24vw,22rem)] md:gap-12 md:py-14">
-          <Reveal className="relative z-10 max-w-3xl py-4">
+        <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.5rem] items-center gap-5 py-8 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-4rem)] md:grid-cols-[minmax(0,1fr)_clamp(14rem,24vw,22rem)] md:gap-12 md:py-14">
+          <Reveal className="relative z-10 max-w-3xl md:py-4">
             <h1 className="font-sans text-[clamp(2.35rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-balance">
               {film.tagline}
             </h1>
