@@ -7,7 +7,7 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Kendall Footé',
         role: 'First Assistant Director',
-        image: '/media/crew/kendall-foote.jpg',
+        image: '/media/crew/kendall-foote.webp',
         bio: 'Kendall is a filmmaker in Los Angeles. He got his start working in production on “Modern Family” and “It’s Always Sunny in Philadelphia” and is currently a First AD for a new wave of filmmakers creating independent work, from short films to commercials and music videos. Kendall prides himself on his ability to run an efficient and positive set environment, which he believes allows everyone to do their best work. A triple threat Writer, Actor, and First AD, Kendall is everywhere a production is going—at least on the best ones! His dedication to his craft knows no limits, and his skills as an AD are second to none.',
       },
       {
@@ -36,6 +36,7 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Mehmet “Memo” Adli',
         role: 'Production Sound Mixing',
+        image: '/media/crew/mehmet-adli.webp',
         bio: 'Mehmet Adli is a Los Angeles-based Production Sound Mixer and audio professional known for his work in independent films, short narratives, and commercial campaigns. His notable work as a sound mixer includes the short film “hi mom” (directed by SM Goldberger) and “Old Man’s Blues” (2025). He also mixed audio for the widely recognized SANG Vietnamese Coffee ad campaign.',
       },
     ],
@@ -46,6 +47,7 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Daniel Button',
         role: 'Gaffer',
+        image: '/media/crew/daniel-button.webp',
         bio: 'Daniel Button being part man part moth has always had an interest in lamps. Which led him to a career in film lighting. Starting his LA journey 16 years ago, he started as an actor studying at the LACC Theater Academy where he honed his skills of bartending. After many years, late nights, auditions, and callbacks, Daniel picked up a camera to take matter into his own hands. Little did he know that path would lead him to the most back breaking job on set: Grip and Electric. Known for greats such as “The Mean One” and “Invisible Raptor” he continues to learn and hone his craft.',
       },
       {
@@ -80,6 +82,7 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Steve Matiasek',
         role: 'Data Wrangler',
+        image: '/media/crew/steve-matiasek.webp',
         bio: 'Steve is a creative director, producer, filmmaker, editor, and fine art photographer with 10+ years of experience producing visual content for musicians, artists, galleries, luxury hospitality brands, and commercial clients. His experience in executing projects independently from concept through delivery makes him an enormous asset to any team.',
       },
     ],
@@ -90,12 +93,13 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Dixie Huckabay',
         role: 'Production Design & Art',
-        image: '/media/crew/dixie-huckabay.jpg',
+        image: '/media/crew/dixie-huckabay.webp',
         bio: 'Dixie Huckabay is a props designer and artisan working primarily in theatre. She holds BFA degrees in graphic design and properties design from the University of Oklahoma and Oklahoma City University, respectively. She works in university and professional theatres, most recently at Rail Events Productions’ Harry Potter: A Hogwarts Express Adventure as props, puppets, and décor supervisor. Her work extends beyond just theatre, however. In addition to prop design, she lends her skills in art direction, costumes, concept art and illustration to a variety of projects. She does work in film, such as Secs on the Beach’s music video, Girls Love Boys Love (2024), and even video games, notably Toontown Rewritten.',
       },
       {
         name: 'Gabriella Mancha',
         role: 'Makeup',
+        image: '/media/crew/gabriella-mancha.webp',
         bio: 'Gabriella Mancha is a Los Angeles based, Freelance Hair Stylist, Makeup artist and Groomer. With extensive experience working in both print and motion, Gabriella has lent her skills to a variety of projects, from fashion and beauty campaigns to music videos and advertisements.',
       },
     ],
@@ -141,6 +145,7 @@ export const crewDepartments: CrewDepartment[] = [
       {
         name: 'Keysei Estrada',
         role: 'BTS Photo & Video',
+        image: '/media/crew/keysei-estrada.webp',
         bio: 'Keysei Estrada is a multi-media designer involved in different mediums of creative composition. When it comes to narrative projects you can find him on set helping in many different positions, from directing or cinematography, to BTS, designing and even narrative writing. His recently published book “ABSOLUTE CINEMA - Storytelling Techniques” is designed to help writers avoid writer’s block and how to focus on the purpose of a story, available on Amazon.',
       },
       {

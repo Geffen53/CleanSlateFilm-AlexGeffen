@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Download } from 'lucide-react';
 import GalleryGrid from '@/components/GalleryGrid';
+import FestivalCard from '@/components/FestivalCard';
 import PageIntro from '@/components/PageIntro';
 import { btsImages, festivals, film, stills } from '@/data/film';
 
@@ -16,7 +17,7 @@ export default function PressPage() {
           <a href={film.pressKit} download className="action-secondary gap-3"><Download size={17} />Download EPK</a>
         </div>
       </section>
-      <section className="py-12 md:py-16"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-8 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <article key={festival.name} className="bg-panel p-5"><p className="mb-2 text-sm font-medium text-muted">{festival.recognition}</p><h3 className="text-lg font-semibold leading-6">{festival.name}</h3><p className="mt-3 text-sm leading-6 text-muted">{festival.location && <>{festival.location}<br /></>}{festival.date}</p></article>)}</div></div></section>
+      <section className="py-12 md:py-16"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <FestivalCard key={festival.name} festival={festival} />)}</div></div></section>
       <section id="gallery" className="render-deferred section-rule bg-panel py-12 md:py-16"><div className="page-shell"><h2 className="section-title mb-8">Film stills</h2><GalleryGrid images={stills} /></div></section>
       <section className="render-deferred py-12 md:py-16"><div className="page-shell"><h2 className="section-title mb-8">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
     </>

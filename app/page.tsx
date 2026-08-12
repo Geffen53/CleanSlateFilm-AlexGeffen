@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Reveal from '@/components/Reveal';
 import IntentLink from '@/components/IntentLink';
+import FestivalCard from '@/components/FestivalCard';
 import { festivals, film, stills } from '@/data/film';
 
 export default function HomePage() {
@@ -19,13 +20,13 @@ export default function HomePage() {
 
         <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.5rem] items-center gap-5 py-8 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-4rem)] md:grid-cols-[minmax(0,1fr)_clamp(14rem,24vw,22rem)] md:gap-12 md:py-14">
           <Reveal className="relative z-10 max-w-3xl md:py-4">
-            <h1 className="font-sans text-[clamp(2.35rem,7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-balance">
-              {film.tagline}
+            <h1 className="max-w-3xl">
+              <Image src="/media/clean-slate-title.png" alt="Clean Slate" width={1800} height={181} priority sizes="(min-width: 768px) 65vw, 72vw" className="h-auto w-full" />
             </h1>
             <p className="mt-4 text-xs font-medium text-white/70 md:mt-5 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
             <p className="mt-5 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-6 md:text-lg md:leading-8">{film.synopsis}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <IntentLink href="/film" className="action-primary !bg-white !text-ink hover:!bg-white/85">Discover the film</IntentLink>
+              <IntentLink href="/film" className="action-primary !bg-[#eee9d8] !text-[#0b0f10] hover:!bg-white">Discover the film</IntentLink>
               <IntentLink href="/videos" className="action-secondary !bg-black/25 !text-white !shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] hover:!bg-white/15">Trailer</IntentLink>
             </div>
           </Reveal>
@@ -65,13 +66,9 @@ export default function HomePage() {
       <section className="bg-navy py-12 text-white md:py-16">
         <div className="page-shell">
           <h2 className="section-title text-white">Festival journey</h2>
-          <div className="mt-7 grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {festivals.map((festival) => (
-              <div key={festival.name} className="bg-navy p-5">
-                <p className="text-xs text-white/70">{festival.recognition}</p>
-                <h3 className="mt-2 font-semibold leading-6">{festival.name}</h3>
-                <p className="mt-2 text-xs leading-5 text-white/65">{festival.date}</p>
-              </div>
+              <FestivalCard key={festival.name} festival={festival} surface="navy" />
             ))}
           </div>
         </div>

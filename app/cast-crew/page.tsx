@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PageIntro from '@/components/PageIntro';
 import PersonTile from '@/components/PersonTile';
+import ProducerSection from '@/components/ProducerSection';
 import Reveal from '@/components/Reveal';
 import { cast } from '@/data/cast';
 import { crewDepartments } from '@/data/crew';
@@ -15,6 +16,7 @@ export default function CastCrewPage() {
       <section className="bg-panel py-12 md:py-16">
         <div className="page-shell"><h2 className="section-title">Cast</h2><div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-9 sm:gap-x-6 lg:grid-cols-3">{cast.map((person) => <Reveal key={person.name}><PersonTile person={getPersonPreview(person)} href={`/cast-crew/${person.slug}`} /></Reveal>)}</div></div>
       </section>
+      <ProducerSection />
       {crewDepartments.map((department, departmentIndex) => (
         <section key={department.name} className={`render-deferred section-rule py-12 md:py-16 ${departmentIndex % 2 ? 'bg-panel' : ''}`}>
           <div className="page-shell"><h2 className="section-title">{department.name}</h2><div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3">{department.people.map((person) => <PersonTile key={`${department.name}-${person.name}`} person={getPersonPreview(person)} href={`/cast-crew/${getPersonSlug(person)}`} />)}</div></div>

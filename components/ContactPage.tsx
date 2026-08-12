@@ -1,4 +1,4 @@
-import { ExternalLink, Mail } from 'lucide-react';
+import { ExternalLink, Instagram, Mail } from 'lucide-react';
 import { film } from '@/data/film';
 
 const inquiryHref = `mailto:${film.contactEmail}?subject=${encodeURIComponent('Clean Slate inquiry')}`;
@@ -21,6 +21,10 @@ export default function ContactPage() {
         <a href={`mailto:${film.contactEmail}`} className="mt-4 inline-block break-all text-sm text-muted transition hover:text-ink">
           {film.contactEmail}
         </a>
+        <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          <a href="https://www.instagram.com/alexandergeffen/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md text-muted transition hover:text-ink"><Instagram size={17} />@Alexandergeffen</a>
+          <a href="https://www.instagram.com/casshuckabay/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md text-muted transition hover:text-ink"><Instagram size={17} />@casshuckabay</a>
+        </div>
       </div>
     </div>
   );

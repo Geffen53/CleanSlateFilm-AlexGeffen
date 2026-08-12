@@ -26,4 +26,18 @@ export type Festival = {
   location?: string;
   date: string;
   recognition: string;
+  laurelDark: string;
+  laurelLight: string;
+};
+
+export type ProducerGroup = {
+  role: string;
+  names: string[];
+};
+
+export type CreativeConsultant = {
+  name: string;
+  description: string;
+  url: string;
+  logo?: string;
 };

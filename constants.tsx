@@ -4,5 +4,6 @@ export const NAV_LINKS = [
   { name: 'Cast & Crew', path: '/cast-crew' },
   { name: 'Videos', path: '/videos' },
   { name: 'Press / Gallery', path: '/press' },
+  { name: 'Creative Consultants', path: '/creative-consultants' },
   { name: 'Contact', path: '/contact' },
 ] as const;

@@ -19,7 +19,7 @@ export default function Navbar() {
           Clean Slate
         </IntentLink>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-1 xl:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.path;
             return (
@@ -35,7 +35,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -50,7 +50,7 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-line bg-paper py-2 lg:hidden">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-line bg-paper py-2 xl:hidden">
           <div className="page-shell grid gap-1">
             {NAV_LINKS.map((link) => (
               <IntentLink

@@ -2,7 +2,6 @@ import type { Festival, GalleryImage, Person } from './types';
 
 export const film = {
   title: 'Clean Slate',
-  tagline: "Your second chance isn't what you think.",
   synopsis:
     'When a new government-sanctioned program is implemented to reduce prison numbers by erasing violent offenders’ memories, the retribution falls to the survivors of their victims.',
   descriptor: 'A dystopian sci-fi that tackles social issues and the ripple effects of trauma.',
@@ -29,7 +28,7 @@ export const filmmakers: Person[] = [
   {
     name: 'Alex Geffen',
     role: 'Writer / Co-Director',
-    image: '/media/cast/alex-geffen.jpg',
+    image: '/media/filmmakers/alex-geffen.webp',
     bio: 'Alex Geffen is a Texas-raised, Los Angeles based actor, writer, director, and editor. While acting is his first love, he has spent over a decade editing for film and television. He believes storytelling especially through film, has a unique power to shift perspectives and spark real-world change in a way traditional media often cannot. Focused on exploring the human condition, Alex aims to create work that challenges, inspires, and encourages other filmmakers to do the same.',
   },
   {
@@ -47,6 +46,7 @@ export const statements = [
     text: [
       'With a background in film and television production, I’ve spent years shaping stories from behind the scenes. That experience taught me the power of emotional truth. My goal has always been to craft stories that speak to the complexities of the human experience.',
       'I wrote "Clean Slate," as an allegory for the current social climate, particularly in America. At its core, it challenges viewers to reflect on their own moral compass in the face of sweeping systemic changes, especially those that feel distant or irrelevant at first glance. It’s a dark reflection of our world, questioning whether those in power are actually helping a broken system, or are ultimately doing more harm than good.',
+      'Beyond its commentary, the film also asks a deeper, more personal question: What does it mean to be human? Can we truly be reborn or are we destined to repeat the mistakes of our past whether we remember those mistakes or not.',
     ],
   },
   {
@@ -60,11 +60,11 @@ export const statements = [
 ];
 
 export const festivals: Festival[] = [
-  { name: 'BraveMaker Film Fest', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection' },
-  { name: 'Midwest Weirdfest', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Best Short Thriller' },
-  { name: 'GenreBlast Film Festival', date: '2026', recognition: 'Official Selection' },
-  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection' },
-  { name: 'Tees Valley International Film Festival', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee' },
+  { name: 'Midwest Weirdfest', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Best Short Thriller', laurelDark: '/media/festivals/midwest-dark.png', laurelLight: '/media/festivals/midwest-light.png' },
+  { name: 'BraveMaker Film Fest', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/bravemaker-dark.png', laurelLight: '/media/festivals/bravemaker-light.png' },
+  { name: 'GenreBlast Film Festival', date: 'September 3–6, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/genreblast-dark.png', laurelLight: '/media/festivals/genreblast-light.png' },
+  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png' },
+  { name: 'Tees Valley International Film Festival', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-dark.png', laurelLight: '/media/festivals/tees-light.png' },
 ];
 
 export const stills: GalleryImage[] = [
@@ -85,8 +85,10 @@ export const btsImages: GalleryImage[] = [
   { src: '/media/bts/alex-cass.jpg', alt: 'Alex Geffen and Cass Huckabay on set', caption: 'Alex Geffen and Cass Huckabay', width: 1600, height: 1066 },
   { src: '/media/bts/playback.jpg', alt: 'Cass Huckabay and Michael Cunningham reviewing playback', caption: 'Reviewing playback', width: 1600, height: 1066 },
   { src: '/media/bts/living-room-direction.jpg', alt: 'Alex Geffen discussing the living room scene', caption: 'Living room scene', width: 1600, height: 1066 },
-  { src: '/media/bts/mail-time.jpg', alt: 'Kendall Footé preparing the mail scene', caption: 'Mail time', width: 1600, height: 1066 },
   { src: '/media/bts/final-shot.jpg', alt: 'Directors viewing the final shot', caption: 'The final shot', width: 1600, height: 1066 },
   { src: '/media/bts/outdoor-crew.jpg', alt: 'Crew preparing an outdoor shot', caption: 'Preparing the outdoor shots', width: 1600, height: 1066 },
   { src: '/media/bts/mail-directors.jpg', alt: 'Alex Geffen and Cass Huckabay at the mailbox set', caption: 'Between takes', width: 1600, height: 1066 },
+  { src: '/media/bts/cass-directing.jpg', alt: 'Cass Huckabay directing Michael Cunningham during the crib scene', caption: 'Cass directing', width: 1800, height: 1200 },
+  { src: '/media/bts/alex-cass-directing-cu.jpg', alt: 'Alex Geffen and Cass Huckabay lining up a close-up shot on set', caption: 'Alex and Cass directing', width: 1800, height: 1200 },
+  { src: '/media/bts/gun-pointing.jpg', alt: 'Clean Slate crew filming the living room confrontation at gunpoint', caption: 'Living room scene', width: 1800, height: 1200 },
 ];
