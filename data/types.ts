@@ -28,6 +28,7 @@ export type Festival = {
   recognition: string;
   laurelDark: string;
   laurelLight: string;
+  laurelTone?: 'monochrome';
 };
 
 export type ProducerGroup = {

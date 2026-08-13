@@ -24,12 +24,12 @@ export default function PersonTile({ person, href }: { person: PersonPreview; hr
   return (
     <article className="group">
       {href ? <Link href={href} prefetch={false} aria-label={`View ${person.name}'s profile`}>{portrait}</Link> : portrait}
-      <div className="pt-4">
-        <p className="text-xs font-medium leading-5 text-muted sm:text-sm">{person.role}</p>
-        <h3 className="mt-1 break-words text-base font-semibold leading-tight tracking-tight sm:text-xl">
+      <div className="pt-2.5">
+        <p className="text-[0.68rem] font-medium leading-4 text-muted sm:text-xs">{person.role}</p>
+        <h3 className="mt-1 break-words text-sm font-semibold leading-tight sm:text-lg">
           {href ? <Link href={href} prefetch={false} className="rounded-sm transition hover:text-navy dark:hover:text-accent">{person.name}</Link> : person.name}
         </h3>
-        {person.knownFor && <p className="mt-2 text-xs leading-5 text-muted sm:mt-3 sm:text-sm sm:leading-6">{person.knownFor}</p>}
+        {person.knownFor && <p className="mt-1.5 text-[0.68rem] leading-4 text-muted sm:text-xs sm:leading-5">{person.knownFor}</p>}
       </div>
     </article>
   );

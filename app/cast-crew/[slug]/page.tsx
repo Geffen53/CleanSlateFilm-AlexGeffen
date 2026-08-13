@@ -22,9 +22,9 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
   if (!person) notFound();
 
   return (
-    <article className="page-shell pb-16 pt-24 md:pt-28">
-      <Link href="/cast-crew" prefetch={false} className="text-sm font-semibold text-muted hover:text-ink">← Cast & Crew</Link>
-      <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
+    <article className="page-shell pb-12 pt-20 md:pt-24">
+      <Link href="/cast-crew" prefetch={false} className="compact-link -ml-2">← Cast & Crew</Link>
+      <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
         <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-navy/10">
           {person.image ? (
             <Image src={person.image} alt={person.name} fill priority sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" style={{ objectPosition: person.imagePosition ?? 'center' }} />
@@ -32,13 +32,13 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
             <div className="flex h-full items-end bg-navy p-8 text-paper"><span className="wordmark text-5xl">CS</span></div>
           )}
         </div>
-        <div className="lg:pt-8">
-          <p className="text-base font-medium text-muted">{person.role}</p>
-          <h1 className="display-title mt-2">{person.name}</h1>
-          {person.knownFor && <p className="mt-6 text-lg leading-8 text-muted">{person.knownFor}</p>}
-          <div className="mt-10 border-t border-line pt-8">
-            <h2 className="text-xl font-semibold">Biography</h2>
-            <p className="body-copy mt-5">{person.bio}</p>
+        <div className="lg:pt-4">
+          <p className="text-sm font-medium text-muted">{person.role}</p>
+          <h1 className="display-title mt-1">{person.name}</h1>
+          {person.knownFor && <p className="mt-4 text-base leading-6 text-muted">{person.knownFor}</p>}
+          <div className="mt-7 border-t border-line pt-5">
+            <h2 className="text-lg font-semibold">Biography</h2>
+            <p className="body-copy mt-3">{person.bio}</p>
           </div>
         </div>
       </div>

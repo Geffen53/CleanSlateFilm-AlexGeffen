@@ -19,16 +19,16 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
   if (!showBanner) return null;
 
   return (
-    <aside aria-label="Privacy choices" className={`fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-4xl rounded-md border border-line bg-panel p-4 shadow-2xl shadow-black/20 ${className}`}>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <aside aria-label="Privacy choices" className={`fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-3xl rounded-md border border-line bg-panel p-3 shadow-2xl shadow-black/20 ${className}`}>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <button type="button" onClick={() => setExpanded((value) => !value)} aria-expanded={expanded} className="flex min-w-0 items-center gap-3 text-left">
           <Shield size={20} className="shrink-0 text-navy dark:text-accent" />
-          <span><strong className="block text-sm">Privacy choices</strong><span className="block text-xs leading-5 text-muted">Essential storage only. Analytics require consent.</span></span>
+          <span><strong className="block text-xs">Privacy choices</strong><span className="block text-[0.68rem] leading-4 text-muted">Essential storage only. Analytics require consent.</span></span>
           <ChevronDown size={16} className={`shrink-0 transition ${expanded ? 'rotate-180' : ''}`} />
         </button>
         <div className="flex flex-wrap items-center gap-2">
-          <button type="button" onClick={acceptAll} className="min-h-10 rounded-md bg-ink px-4 text-xs font-semibold text-paper transition hover:bg-navy">Accept all</button>
-          <button type="button" onClick={rejectNonEssential} className="min-h-10 rounded-md border border-line px-4 text-xs font-semibold transition hover:bg-paper">Essential only</button>
+          <button type="button" onClick={acceptAll} className="min-h-9 rounded-md bg-ink px-3 text-[0.68rem] font-semibold text-paper transition hover:bg-navy">Accept all</button>
+          <button type="button" onClick={rejectNonEssential} className="min-h-9 rounded-md border border-line px-3 text-[0.68rem] font-semibold transition hover:bg-paper">Essential only</button>
           {preferences && <button type="button" onClick={closeBanner} aria-label="Close privacy choices" className="grid h-10 w-10 place-items-center rounded-md transition hover:bg-paper"><X size={17} /></button>}
         </div>
       </div>

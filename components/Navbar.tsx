@@ -13,21 +13,21 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur-md">
-      <div className="page-shell flex h-16 items-center justify-between">
-        <IntentLink href="/" aria-label="Clean Slate home" className="wordmark rounded-md px-2 py-1 text-2xl transition hover:bg-panel">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper/95 backdrop-blur-md">
+      <div className="page-shell flex h-14 items-center justify-between">
+        <IntentLink href="/" aria-label="Clean Slate home" className="wordmark rounded-md px-2 py-1 text-[1.65rem] transition hover:bg-panel">
           Clean Slate
         </IntentLink>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-1 xl:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
           {NAV_LINKS.map((link) => {
-            const active = pathname === link.path;
+            const active = pathname === link.path || (link.path !== '/' && pathname.startsWith(`${link.path}/`));
             return (
               <IntentLink
                 key={link.path}
                 href={link.path}
                 aria-current={active ? 'page' : undefined}
-                className={`rounded-md px-3 py-2 text-xs font-medium transition ${active ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
+                className={`rounded-md px-2 py-2 text-[0.68rem] font-medium transition xl:px-2.5 ${active ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
               >
                 {link.name}
               </IntentLink>
@@ -35,7 +35,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -50,13 +50,13 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-line bg-paper py-2 xl:hidden">
-          <div className="page-shell grid gap-1">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-line bg-paper py-2 lg:hidden">
+          <div className="page-shell grid grid-cols-2 gap-1 pb-1">
             {NAV_LINKS.map((link) => (
               <IntentLink
                 key={link.path}
                 href={link.path}
-                className={`rounded-md px-3 py-3 text-sm font-medium transition ${pathname === link.path ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
+                className={`rounded-md px-3 py-2.5 text-sm font-medium transition ${pathname === link.path || (link.path !== '/' && pathname.startsWith(`${link.path}/`)) ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
               >
                 {link.name}
               </IntentLink>

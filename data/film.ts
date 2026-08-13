@@ -7,7 +7,7 @@ export const film = {
   descriptor: 'A dystopian sci-fi that tackles social issues and the ripple effects of trauma.',
   contactEmail: 'CleanSlateProduction@gmail.com',
   imdbUrl: 'https://www.imdb.com/title/tt36970118/',
-  trailerUrl: null as string | null,
+  trailerUrl: 'https://www.youtube-nocookie.com/embed/vlGzqpS5-n8',
   pressKit: 'https://media.cleanslatefilm.com/press/clean-slate-press-kit.pdf',
   facts: [
     ['Genre', 'Sci-fi, Thriller, Drama'],
@@ -63,7 +63,7 @@ export const festivals: Festival[] = [
   { name: 'Midwest Weirdfest', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Best Short Thriller', laurelDark: '/media/festivals/midwest-dark.png', laurelLight: '/media/festivals/midwest-light.png' },
   { name: 'BraveMaker Film Fest', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/bravemaker-dark.png', laurelLight: '/media/festivals/bravemaker-light.png' },
   { name: 'GenreBlast Film Festival', date: 'September 3–6, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/genreblast-dark.png', laurelLight: '/media/festivals/genreblast-light.png' },
-  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png' },
+  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png', laurelTone: 'monochrome' },
   { name: 'Tees Valley International Film Festival', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-dark.png', laurelLight: '/media/festivals/tees-light.png' },
 ];
 

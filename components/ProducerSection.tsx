@@ -2,10 +2,10 @@ import { producerGroups } from '@/data/producers';
 
 export default function ProducerSection() {
   return (
-    <section className="section-rule py-12 md:py-16">
+    <section className="section-rule py-9 md:py-12">
       <div className="page-shell">
         <h2 className="section-title">Producers</h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
           {producerGroups.map((group) => (
             <div key={group.role}>
               <h3 className="text-sm font-semibold text-muted">{group.role}</h3>

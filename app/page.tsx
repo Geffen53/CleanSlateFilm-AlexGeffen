@@ -7,7 +7,7 @@ import { festivals, film, stills } from '@/data/film';
 export default function HomePage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-navy pt-16 text-white">
+      <section className="relative isolate overflow-hidden bg-navy pt-14 text-white">
         <Image
           src="/media/stills/eric-trevor.jpg"
           alt=""
@@ -18,15 +18,15 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,11,12,0.92)_0%,rgba(5,11,12,0.72)_55%,rgba(5,11,12,0.42)_100%)]" />
 
-        <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.5rem] items-center gap-5 py-8 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-4rem)] md:grid-cols-[minmax(0,1fr)_clamp(14rem,24vw,22rem)] md:gap-12 md:py-14">
-          <Reveal className="relative z-10 max-w-3xl md:py-4">
+        <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.25rem] items-center gap-4 py-7 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-3.5rem)] md:grid-cols-[minmax(0,1fr)_clamp(13rem,22vw,20rem)] md:gap-10 md:py-12">
+          <Reveal className="relative z-10 max-w-3xl md:py-3">
             <h1 className="max-w-3xl">
               <Image src="/media/clean-slate-title.png" alt="Clean Slate" width={1800} height={181} priority sizes="(min-width: 768px) 65vw, 72vw" className="h-auto w-full" />
             </h1>
-            <p className="mt-4 text-xs font-medium text-white/70 md:mt-5 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-6 md:text-lg md:leading-8">{film.synopsis}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <IntentLink href="/film" className="action-primary !bg-[#eee9d8] !text-[#0b0f10] hover:!bg-white">Discover the film</IntentLink>
+            <p className="mt-3 text-xs font-medium text-white/70 md:mt-4 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
+            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-5 md:text-lg md:leading-8">{film.synopsis}</p>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <IntentLink href="/film" className="action-primary !bg-paper !text-ink hover:!bg-white">Discover the film</IntentLink>
               <IntentLink href="/videos" className="action-secondary !bg-black/25 !text-white !shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] hover:!bg-white/15">Trailer</IntentLink>
             </div>
           </Reveal>
@@ -38,18 +38,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-rule bg-panel py-12 md:py-16">
-        <div className="page-shell">
-          <Reveal><h2 className="max-w-5xl text-2xl font-semibold leading-tight md:text-4xl">{film.descriptor}</h2></Reveal>
-          <div className="mt-6"><IntentLink href="/film" className="action-secondary">About the film</IntentLink></div>
+      <section className="section-rule bg-panel py-9 md:py-12">
+        <div className="page-shell grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
+          <Reveal><h2 className="max-w-4xl text-xl font-semibold leading-tight md:text-3xl">{film.descriptor}</h2></Reveal>
+          <IntentLink href="/film" className="action-secondary w-fit">About the film</IntentLink>
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-9 md:py-12">
         <div className="page-shell">
-          <div className="mb-7 flex items-end justify-between gap-6">
+          <div className="mb-5 flex items-end justify-between gap-4">
             <h2 className="section-title">Inside the story</h2>
-            <IntentLink href="/press#gallery" className="hidden rounded-md px-3 py-2 text-sm font-semibold transition hover:bg-panel sm:block">View gallery</IntentLink>
+            <IntentLink href="/press#gallery" className="compact-link hidden sm:inline-flex">View gallery</IntentLink>
           </div>
           <div className="grid gap-3 md:grid-cols-12">
             {stills.slice(0, 5).map((still, index) => (
@@ -63,10 +63,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy py-12 text-white md:py-16">
+      <section className="bg-navy py-9 text-white md:py-12">
         <div className="page-shell">
           <h2 className="section-title text-white">Festival journey</h2>
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {festivals.map((festival) => (
               <FestivalCard key={festival.name} festival={festival} surface="navy" />
             ))}

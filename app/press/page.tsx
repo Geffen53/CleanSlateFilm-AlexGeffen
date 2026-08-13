@@ -10,16 +10,16 @@ export const metadata: Metadata = { title: 'Press & Gallery', description: 'Pres
 export default function PressPage() {
   return (
     <>
-      <PageIntro title="Press & Gallery" copy="Official stills, production photography, festival milestones and press materials from Clean Slate." compact />
-      <section className="bg-navy py-8 text-white md:py-10">
+      <PageIntro title="Press & Gallery" copy="Official stills, production photography, festival milestones and press materials." compact />
+      <section className="bg-navy py-6 text-white md:py-8">
         <div className="page-shell flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <div><h2 className="text-2xl font-semibold">Clean Slate press kit</h2><p className="mt-2 text-sm text-white/65">Web-optimized PDF · 26 pages</p></div>
-          <a href={film.pressKit} download className="action-secondary gap-3"><Download size={17} />Download EPK</a>
+          <div><h2 className="text-xl font-semibold">Press kit</h2><p className="mt-1 text-xs text-white/65">Web-optimized PDF · 26 pages</p></div>
+          <a href={film.pressKit} download className="action-secondary gap-3"><Download size={17} />Download press kit</a>
         </div>
       </section>
-      <section className="py-12 md:py-16"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <FestivalCard key={festival.name} festival={festival} />)}</div></div></section>
-      <section id="gallery" className="render-deferred section-rule bg-panel py-12 md:py-16"><div className="page-shell"><h2 className="section-title mb-8">Film stills</h2><GalleryGrid images={stills} /></div></section>
-      <section className="render-deferred py-12 md:py-16"><div className="page-shell"><h2 className="section-title mb-8">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
+      <section className="py-9 md:py-12"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <FestivalCard key={festival.name} festival={festival} />)}</div></div></section>
+      <section id="gallery" className="render-deferred section-rule bg-panel py-9 md:py-12"><div className="page-shell"><h2 className="section-title mb-5">Film stills</h2><GalleryGrid images={stills} /></div></section>
+      <section className="render-deferred py-9 md:py-12"><div className="page-shell"><h2 className="section-title mb-5">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
     </>
   );
 }

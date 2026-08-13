@@ -7,8 +7,8 @@ export const metadata: Metadata = { title: 'Contact', description: 'Contact the 
 export default function Contact() {
   return (
     <>
-      <PageIntro title="Contact" copy="Connect with the Clean Slate team for press, festival, screening, and production inquiries." compact />
-      <section className="section-rule bg-panel py-12 md:py-16"><div className="page-shell"><ContactPage /></div></section>
+      <PageIntro title="Contact" copy="For press, festival, screening, partnership, and production inquiries." compact />
+      <section className="section-rule bg-panel py-9 md:py-12"><div className="page-shell"><ContactPage /></div></section>
     </>
   );
 }
