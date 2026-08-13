@@ -18,12 +18,12 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,11,12,0.92)_0%,rgba(5,11,12,0.72)_55%,rgba(5,11,12,0.42)_100%)]" />
 
-        <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.25rem] items-center gap-4 py-7 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-3.5rem)] md:grid-cols-[minmax(0,1fr)_clamp(13rem,22vw,20rem)] md:gap-10 md:py-12">
-          <Reveal className="relative z-10 max-w-3xl md:py-3">
-            <h1 className="wordmark text-3xl leading-tight md:text-5xl">Your second chance isn't what you think</h1>
-            <p className="mt-3 text-xs font-medium text-white/70 md:mt-4 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-5 md:text-lg md:leading-8">{film.synopsis}</p>
-            <div className="mt-6 flex flex-wrap gap-2.5">
+        <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.25rem] items-center gap-4 py-5 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-3.5rem)] md:grid-cols-[minmax(0,1fr)_clamp(13rem,22vw,20rem)] md:gap-10 md:py-10">
+          <Reveal className="relative z-10 max-w-3xl md:py-2">
+            <h1 className="font-sans text-3xl leading-[1.02] tracking-tight md:text-5xl">Your second chance isn't what you think</h1>
+            <p className="mt-2 text-xs font-medium text-white/70 md:mt-3 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-4 md:text-lg md:leading-8">{film.synopsis}</p>
+            <div className="mt-5 flex flex-wrap gap-2.5">
               <IntentLink href="/film" className="action-primary !bg-paper !text-ink hover:!bg-white">Discover the film</IntentLink>
               <IntentLink href="/videos" className="action-secondary !bg-black/25 !text-white !shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] hover:!bg-white/15">Trailer</IntentLink>
             </div>
