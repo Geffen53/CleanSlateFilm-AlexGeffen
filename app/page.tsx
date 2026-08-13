@@ -20,9 +20,7 @@ export default function HomePage() {
 
         <div className="page-shell grid grid-cols-[minmax(0,1fr)_5.25rem] items-center gap-4 py-7 sm:grid-cols-[minmax(0,1fr)_7rem] md:min-h-[calc(100svh-3.5rem)] md:grid-cols-[minmax(0,1fr)_clamp(13rem,22vw,20rem)] md:gap-10 md:py-12">
           <Reveal className="relative z-10 max-w-3xl md:py-3">
-            <h1 className="max-w-3xl">
-              <Image src="/media/clean-slate-title.png" alt="Clean Slate" width={1800} height={181} priority sizes="(min-width: 768px) 65vw, 72vw" className="h-auto w-full" />
-            </h1>
+            <h1 className="wordmark text-3xl leading-tight md:text-5xl">Your second chance isn't what you think</h1>
             <p className="mt-3 text-xs font-medium text-white/70 md:mt-4 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-5 md:text-lg md:leading-8">{film.synopsis}</p>
             <div className="mt-6 flex flex-wrap gap-2.5">
