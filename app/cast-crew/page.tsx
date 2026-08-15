@@ -14,7 +14,7 @@ export default function CastCrewPage() {
     <>
       <PageIntro title="Cast & Crew" copy="Meet the performers and filmmakers who brought the film from the page to the screen." compact />
       <section className="bg-panel py-9 md:py-12">
-        <div className="page-shell"><h2 className="section-title">Cast</h2><div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 lg:grid-cols-3">{cast.map((person) => <Reveal key={person.name}><PersonTile person={getPersonPreview(person)} href={`/cast-crew/${person.slug}`} /></Reveal>)}</div></div>
+        <div className="page-shell"><h2 className="section-title">Cast</h2><div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-7 sm:gap-x-5 lg:grid-cols-3">{cast.map((person) => <Reveal key={person.name}><PersonTile person={getPersonPreview(person)} href={`/cast-crew/${person.slug}`} showRole={false} /></Reveal>)}</div></div>
       </section>
       <ProducerSection />
       {crewDepartments.map((department, departmentIndex) => (

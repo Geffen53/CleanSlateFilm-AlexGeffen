@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { PersonPreview } from '@/data/people';
 
-export default function PersonTile({ person, href }: { person: PersonPreview; href?: string }) {
+export default function PersonTile({ person, href, showRole = true }: { person: PersonPreview; href?: string; showRole?: boolean }) {
   const portrait = (
     <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-navy/10">
       {person.image ? (
@@ -24,7 +24,7 @@ export default function PersonTile({ person, href }: { person: PersonPreview; hr
     <article className="group">
       {href ? <Link href={href} prefetch={false} aria-label={`View ${person.name}'s profile`}>{portrait}</Link> : portrait}
       <div className="pt-2.5">
-        <p className="text-[0.68rem] font-medium leading-4 text-muted sm:text-xs">{person.role}</p>
+        {showRole && <p className="text-[0.68rem] font-medium leading-4 text-muted sm:text-xs">{person.role}</p>}
         <h3 className="mt-1 break-words text-sm font-semibold leading-tight sm:text-lg">
           {href ? <Link href={href} prefetch={false} className="rounded-sm transition hover:text-navy dark:hover:text-accent">{person.name}</Link> : person.name}
         </h3>

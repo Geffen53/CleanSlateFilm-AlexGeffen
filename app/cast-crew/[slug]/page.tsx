@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { cast } from '@/data/cast';
 import { allPeople, findPersonBySlug, findPersonProfileBySlug, getPersonProfiles, getPersonSlug } from '@/data/people';
 
 type ProfilePageProps = { params: Promise<{ slug: string }> };
@@ -37,7 +38,10 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
             <h1 className="display-title">{profile.name}</h1>
             {profile.knownFor && <p className="mt-4 text-base leading-6 text-muted">{profile.knownFor}</p>}
             <div className="mt-7 space-y-7 border-t border-line pt-5">
-              {profile.roles.map((role) => <section key={`${role.role}-${role.bio}`}><h2 className="text-lg font-semibold">{role.role}</h2><p className="body-copy mt-3">{role.bio}</p></section>)}
+              {profile.roles.map((role) => {
+                const castRole = cast.some((castMember) => castMember === role);
+                return <section key={`${role.role}-${role.bio}`}><h2 className="text-lg font-semibold">{castRole ? `${profile.name} as ${role.role}` : role.role}</h2><p className="body-copy mt-3">{role.bio}</p></section>;
+              })}
             </div>
           </div>
         </div>
@@ -57,7 +61,7 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
           )}
         </div>
         <div className="lg:pt-4">
-          <p className="text-sm font-medium text-muted">{person!.role}</p>
+          <p className="text-sm font-medium text-muted">{person!.role ? `${person!.name} as ${person!.role}` : 'Actor'}</p>
           <h1 className="display-title mt-1">{person!.name}</h1>
           {person!.knownFor && <p className="mt-4 text-base leading-6 text-muted">{person!.knownFor}</p>}
           <div className="mt-7 border-t border-line pt-5">
