@@ -35,28 +35,27 @@ export default function FilmPage() {
 
       <section className="py-9 md:py-12">
         <div className="page-shell">
-          <h2 className="section-title">Behind the film</h2>
-          <div className="mt-6 grid gap-7 lg:grid-cols-2">
-            {filmmakers.map((person) => (
-              <article key={person.name} className="grid gap-4 sm:grid-cols-[150px_1fr]">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-panel">
-                  <Image src={person.image!} alt={person.name} fill quality={90} sizes="180px" className="object-cover object-top" />
-                </div>
-                <div><p className="mb-1 text-xs font-medium text-muted">{person.role}</p><h3 className="text-xl font-semibold">{person.name}</h3><p className="mt-3 text-sm leading-6 text-muted">{person.bio}</p></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+          <h2 className="section-title">Director statements</h2>
+          <div className="mt-6 space-y-10">
+            {statements.map((statement) => {
+              const filmmaker = filmmakers.find((person) => person.name === statement.name);
 
-      <section className="bg-navy py-9 text-white md:py-12">
-        <div className="page-shell space-y-8">
-          {statements.map((statement) => (
-            <Reveal key={statement.name} className="grid gap-4 lg:grid-cols-12">
-              <div className="lg:col-span-4"><p className="text-xs font-medium text-white/60">{statement.role}</p><h2 className="mt-1 font-display text-3xl">{statement.name}</h2></div>
-              <div className="space-y-3 text-sm leading-6 text-white/80 lg:col-span-8 md:text-base">{statement.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-            </Reveal>
-          ))}
+              return (
+                <Reveal key={statement.name} className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+                  {filmmaker?.image && (
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-panel sm:max-w-xs lg:col-span-3 lg:max-w-none">
+                      <Image src={filmmaker.image} alt={`${statement.name}, ${filmmaker.role}`} fill quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="object-cover object-top" />
+                    </div>
+                  )}
+                  <div className="lg:col-span-9">
+                    <p className="text-xs font-medium text-muted">{statement.role}</p>
+                    <h3 className="mt-1 font-display text-3xl">{statement.name}</h3>
+                    <div className="mt-5 space-y-3 text-sm leading-6 text-muted md:text-base">{statement.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
