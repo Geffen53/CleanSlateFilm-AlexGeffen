@@ -63,7 +63,7 @@ export const festivals: Festival[] = [
   { name: 'Midwest Weirdfest', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Best Short Thriller', laurelDark: '/media/festivals/midwest-dark.png', laurelLight: '/media/festivals/midwest-light.png' },
   { name: 'BraveMaker Film Fest', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/bravemaker-dark.png', laurelLight: '/media/festivals/bravemaker-light.png' },
   { name: 'GenreBlast Film Festival', date: 'September 3–6, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/genreblast-dark.png', laurelLight: '/media/festivals/genreblast-light.png' },
-  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png' },
+  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-light.png', laurelLight: '/media/festivals/brooklyn-dark.png' },
   { name: 'Tees Valley International Film Festival', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-dark.png', laurelLight: '/media/festivals/tees-light.png' },
 ];
 

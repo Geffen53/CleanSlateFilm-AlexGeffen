@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import { ExternalLink, Instagram, Mail } from 'lucide-react';
-import { film } from '@/data/film';
+import { film, filmmakers } from '@/data/film';
 
 const inquiryHref = `mailto:${film.contactEmail}?subject=${encodeURIComponent('Clean Slate inquiry')}`;
 
@@ -20,9 +21,20 @@ export default function ContactPage() {
         <a href={`mailto:${film.contactEmail}`} className="mt-3 inline-block break-all text-xs text-muted transition hover:text-ink">
           {film.contactEmail}
         </a>
-        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs">
-          <a href="https://www.instagram.com/alexandergeffen/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md text-muted transition hover:text-ink"><Instagram size={17} />@Alexandergeffen</a>
-          <a href="https://www.instagram.com/casshuckabay/" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md text-muted transition hover:text-ink"><Instagram size={17} />@casshuckabay</a>
+        <div className="mt-5 grid max-w-md grid-cols-2 gap-3">
+          {filmmakers.map((filmmaker, index) => {
+            const instagramUrl = index === 0 ? 'https://www.instagram.com/alexandergeffen/' : 'https://www.instagram.com/casshuckabay/';
+            const handle = index === 0 ? '@Alexandergeffen' : '@casshuckabay';
+
+            return (
+              <a key={filmmaker.name} href={instagramUrl} target="_blank" rel="noreferrer" className="group min-w-0">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-panel">
+                  <Image src={filmmaker.image} alt={`${filmmaker.name} headshot`} fill sizes="(min-width: 1024px) 13rem, 50vw" className="object-cover transition duration-300 group-hover:scale-[1.02]" />
+                </div>
+                <span className="mt-2 inline-flex min-h-11 items-center gap-2 text-xs text-muted transition group-hover:text-ink"><Instagram size={17} />{handle}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

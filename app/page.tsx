@@ -23,7 +23,7 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,11,12,0.92)_0%,rgba(5,11,12,0.72)_55%,rgba(5,11,12,0.42)_100%)]" />
 
-        <div className="page-shell grid min-w-0 grid-cols-1 items-center gap-6 py-8 lg:min-h-[calc(100svh-3.5rem)] lg:grid-cols-[minmax(0,1fr)_clamp(13rem,22vw,20rem)] lg:gap-10 lg:py-10">
+        <div className="page-shell grid min-w-0 grid-cols-1 items-center gap-6 py-8 lg:min-h-[calc(100svh-3.5rem)] lg:py-10">
           <Reveal className="relative z-10 min-w-0 max-w-3xl lg:py-2">
             <h1 className="min-w-0">
               <span className="hero-title-frame">
@@ -35,11 +35,6 @@ export default function HomePage() {
             <div className="mt-5 flex flex-wrap gap-2.5">
               <IntentLink href="/film" className={heroActionClass}>Discover the film</IntentLink>
               <IntentLink href="/videos" className={heroActionClass}>Trailer</IntentLink>
-            </div>
-          </Reveal>
-          <Reveal className="relative w-full max-w-[11rem] justify-self-center lg:max-w-none lg:justify-self-end">
-            <div className="relative aspect-[2/3] overflow-hidden rounded-md bg-navy shadow-2xl shadow-black/40 ring-1 ring-white/20">
-              <Image src="/media/clean-slate-poster.jpg" alt="Clean Slate poster" fill priority quality={90} sizes="(min-width: 1024px) 22rem, 11rem" className="object-cover" />
             </div>
           </Reveal>
         </div>
