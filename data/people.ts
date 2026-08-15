@@ -9,7 +9,7 @@ export type PersonProfile = { name: string; image?: string; imagePosition?: stri
 export const crew = crewDepartments.flatMap((department) => department.people);
 export const allPeople = [...cast, ...crew];
 const canonicalProfileNames = new Set(['Alex Geffen', 'Cass Huckabay']);
-const profileSources = [...cast, ...crew, ...filmmakers];
+const profileSources = [...cast, ...filmmakers, ...crew];
 
 function slugify(value: string) {
   return value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');

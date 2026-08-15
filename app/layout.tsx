@@ -14,7 +14,7 @@ const progress = localFont({
   display: 'swap',
 });
 
-const shareTitle = "Clean Slate | Short Film - Geffen & Huckabee";
+const shareTitle = "Clean Slate | Short Film - Geffen & Huckabay";
 
 export const viewport: Viewport = {
   themeColor: [
