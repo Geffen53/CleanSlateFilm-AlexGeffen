@@ -13,7 +13,6 @@ export default function Footer() {
           <Link href="/" prefetch={false} aria-label="Clean Slate home" className="block w-44 rounded-md transition hover:bg-paper sm:w-52">
             <OfficialTitle onLight sizes="13rem" />
           </Link>
-          <p className="mt-3 max-w-md text-xs leading-5 text-muted">{film.descriptor}</p>
           <a className="mt-3 inline-block text-xs font-semibold underline decoration-accent decoration-2 underline-offset-4" href={`mailto:${film.contactEmail}`}>
             {film.contactEmail}
           </a>

@@ -42,7 +42,7 @@ export const filmmakers: Person[] = [
 export const statements = [
   {
     name: 'Alex Geffen',
-    role: 'Writer / Co-Director’s Statement',
+    role: 'Writer / Co-Director',
     text: [
       'With a background in film and television production, I’ve spent years shaping stories from behind the scenes. That experience taught me the power of emotional truth. My goal has always been to craft stories that speak to the complexities of the human experience.',
       'I wrote "Clean Slate," as an allegory for the current social climate, particularly in America. At its core, it challenges viewers to reflect on their own moral compass in the face of sweeping systemic changes, especially those that feel distant or irrelevant at first glance. It’s a dark reflection of our world, questioning whether those in power are actually helping a broken system, or are ultimately doing more harm than good.',
@@ -51,7 +51,7 @@ export const statements = [
   },
   {
     name: 'Cass Huckabay',
-    role: 'Producer / Co-Director’s Statement',
+    role: 'Producer / Co-Director',
     text: [
       'As a female filmmaker, I’ve had to navigate a space where women are too frequently expected to play small and safe—both behind and in front of the camera. But I didn’t enter this industry to play small. I came here to tell stories that rattle something loose, that peel back the layers of what we accept as “normal,” and ask why we’re so comfortable with systems that are broken—in film and in life.',
       'This short film confronts something I see every day in our culture: the tendency to cover and bandage our systematic wounds rather than heal them. We don’t ask what the root of any problem could be, but instead slap a quick fix onto a centuries-old issue. I believe in the power of cinema to open conversations and provoke reflection. Even if it is hard to watch.',

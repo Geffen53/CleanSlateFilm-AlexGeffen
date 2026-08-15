@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'video.movie',
     title: 'Clean Slate',
-    description: film.synopsis,
+    description: 'Alex Geffen | Cass Huckabay',
     url: '/',
-    images: [{ url: '/media/clean-slate-og.jpg', width: 1200, height: 630, alt: 'Clean Slate official trailer artwork' }],
+    images: [{ url: '/media/stills/trevor-crib.jpg', width: 1800, height: 1012, alt: 'Trevor at the crib in Clean Slate' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Clean Slate', description: film.synopsis, images: ['/media/clean-slate-og.jpg'] },
+  twitter: { card: 'summary_large_image', title: 'Clean Slate', description: 'Alex Geffen | Cass Huckabay', images: ['/media/stills/trevor-crib.jpg'] },
 };
 
 const movieJsonLd = {

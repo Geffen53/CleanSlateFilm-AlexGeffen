@@ -41,16 +41,21 @@ export default function FilmPage() {
               const filmmaker = filmmakers.find((person) => person.name === statement.name);
 
               return (
-                <Reveal key={statement.name} className="grid gap-6 lg:grid-cols-12 lg:gap-10">
+                <Reveal key={statement.name} className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-12 lg:gap-10">
                   {filmmaker?.image && (
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-panel sm:max-w-xs lg:col-span-3 lg:max-w-none">
+                    <div className="relative col-span-1 aspect-[4/5] min-w-0 overflow-hidden rounded-md bg-panel sm:max-w-xs lg:col-span-3 lg:max-w-none">
                       <Image src={filmmaker.image} alt={`${statement.name}, ${filmmaker.role}`} fill quality={90} sizes="(min-width: 1024px) 25vw, 320px" className="object-cover object-top" />
                     </div>
                   )}
-                  <div className="lg:col-span-9">
-                    <p className="text-xs font-medium text-muted">{statement.role}</p>
-                    <h3 className="mt-1 font-display text-3xl">{statement.name}</h3>
-                    <div className="mt-5 space-y-3 text-sm leading-6 text-muted md:text-base">{statement.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+                  <div className="contents lg:col-span-9 lg:block">
+                    <div className="col-span-1 min-w-0">
+                      <p className="text-xs font-medium text-muted">{statement.role}</p>
+                      <h3 className="mt-1 font-display text-3xl">{statement.name}</h3>
+                    </div>
+                    <div className="col-span-2 mt-5 space-y-3 text-sm leading-6 text-muted md:text-base">
+                      <p className="text-xs font-medium text-muted">Director&apos;s Statement</p>
+                      {statement.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
                   </div>
                 </Reveal>
               );
