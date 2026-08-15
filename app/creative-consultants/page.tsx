@@ -26,7 +26,7 @@ export default function CreativeConsultantsPage() {
               </div>
               <div>
                 <p className="max-w-xl text-sm leading-6 text-white/75">{consultant.description}</p>
-                <a href={consultant.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-md px-1 text-xs font-semibold text-paper underline decoration-white/30 underline-offset-4 transition hover:text-white">
+                <a href={consultant.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-md px-1 text-xs font-semibold text-white underline decoration-white/30 underline-offset-4 transition hover:text-white">
                   Visit {consultant.name}<ExternalLink size={15} />
                 </a>
               </div>

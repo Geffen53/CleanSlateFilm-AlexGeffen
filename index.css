@@ -83,6 +83,22 @@ a, button, summary, input, select, textarea { outline-offset: 4px; }
   text-transform: uppercase;
 }
 
+.official-title {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.hero-title-frame {
+  display: block;
+  width: min(100%, 42rem);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.official-title-on-light { filter: brightness(0) saturate(100%); }
+.dark .official-title-on-light { filter: none; }
+
 .eyebrow {
   color: var(--muted);
   font-family: var(--font-display);

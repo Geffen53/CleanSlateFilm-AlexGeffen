@@ -23,7 +23,7 @@ export default function VideosPage() {
                   allowFullScreen
                 />
               ) : (
-                <Image src="/media/trailer-artwork.jpg" alt="Clean Slate official trailer artwork" fill priority sizes="100vw" className="object-cover" />
+                <Image src="/media/trailer-artwork.jpg" alt="Clean Slate official trailer artwork" fill priority quality={90} sizes="100vw" className="object-cover" />
               )}
             </div>
             <div className="flex flex-col gap-2 px-1.5 py-4 sm:flex-row sm:items-end sm:justify-between md:px-2">

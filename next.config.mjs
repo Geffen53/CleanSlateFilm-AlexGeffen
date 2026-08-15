@@ -5,9 +5,11 @@ const nextConfig = {
   },
   images: {
     formats: ['image/webp'],
-    deviceSizes: [320, 480, 640, 750, 828, 1080, 1280, 1600],
+    // Keep a source-sized candidate for the 1,800px press stills. Without it,
+    // full-frame viewing can upscale the 1,600px variant on larger screens.
+    deviceSizes: [320, 480, 640, 750, 828, 1080, 1280, 1600, 1800, 2400],
     imageSizes: [160, 256, 384],
-    qualities: [70, 75],
+    qualities: [75, 90],
     minimumCacheTTL: 2_592_000,
   },
   async headers() {

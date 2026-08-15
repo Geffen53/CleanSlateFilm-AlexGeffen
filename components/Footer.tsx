@@ -3,13 +3,16 @@ import { film } from '@/data/film';
 import { NAV_LINKS } from '@/constants';
 import ThemeSelector from './ThemeSelector';
 import PrivacyPreferencesButton from './PrivacyPreferencesButton';
+import OfficialTitle from './OfficialTitle';
 
 export default function Footer() {
   return (
     <footer className="section-rule bg-panel py-9" aria-label="Site footer">
       <div className="page-shell grid gap-7 md:grid-cols-[1fr_auto] md:items-end">
         <div>
-          <Link href="/" prefetch={false} className="wordmark text-[1.9rem]">Clean Slate</Link>
+          <Link href="/" prefetch={false} aria-label="Clean Slate home" className="block w-44 rounded-md transition hover:bg-paper sm:w-52">
+            <OfficialTitle onLight sizes="13rem" />
+          </Link>
           <p className="mt-3 max-w-md text-xs leading-5 text-muted">{film.descriptor}</p>
           <a className="mt-3 inline-block text-xs font-semibold underline decoration-accent decoration-2 underline-offset-4" href={`mailto:${film.contactEmail}`}>
             {film.contactEmail}

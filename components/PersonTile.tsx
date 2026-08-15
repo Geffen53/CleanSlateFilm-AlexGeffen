@@ -11,9 +11,8 @@ export default function PersonTile({ person, href }: { person: PersonPreview; hr
           alt={person.name}
           fill
           sizes="(min-width: 1024px) 28vw, 45vw"
-          quality={70}
-          className="object-cover grayscale-[0.12] transition duration-700 group-hover:scale-[1.025]"
-          style={{ objectPosition: person.imagePosition ?? 'center' }}
+          quality={90}
+          className="object-cover object-top grayscale-[0.12] transition duration-700"
         />
       ) : (
         <div className="flex h-full items-end bg-navy p-6 text-paper"><span className="wordmark text-4xl">CS</span></div>

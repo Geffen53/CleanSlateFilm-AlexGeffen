@@ -7,18 +7,16 @@ type FestivalCardProps = {
 };
 
 export default function FestivalCard({ festival, surface = 'paper' }: FestivalCardProps) {
-  const imageClass = 'h-28 w-full object-contain object-left sm:h-32';
-  const darkLaurelClass = festival.laurelTone === 'monochrome' ? 'brightness-0' : '';
-  const lightLaurelClass = festival.laurelTone === 'monochrome' ? 'brightness-0 invert' : '';
+  const imageClass = 'h-28 w-full object-contain object-center sm:h-32';
 
   return (
-    <article className={surface === 'navy' ? 'rounded-md bg-white/[0.06] p-3.5' : 'rounded-md bg-panel p-3.5'}>
+    <article className={`${surface === 'navy' ? 'rounded-md bg-white/[0.06]' : 'rounded-md bg-panel'} p-3.5 text-center`}>
       {surface === 'navy' ? (
-        <Image src={festival.laurelLight} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} ${lightLaurelClass}`} />
+        <Image src={festival.laurelLight} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={imageClass} />
       ) : (
         <>
-          <Image src={festival.laurelDark} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} ${darkLaurelClass} dark:hidden`} />
-          <Image src={festival.laurelLight} alt="" aria-hidden width={720} height={320} className={`${imageClass} ${lightLaurelClass} hidden dark:block`} />
+          <Image src={festival.laurelDark} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} dark:hidden`} />
+          <Image src={festival.laurelLight} alt="" aria-hidden width={720} height={320} className={`${imageClass} hidden dark:block`} />
         </>
       )}
       <p className={`mt-3 text-[0.68rem] font-medium ${surface === 'navy' ? 'text-white/70' : 'text-muted'}`}>{festival.recognition}</p>

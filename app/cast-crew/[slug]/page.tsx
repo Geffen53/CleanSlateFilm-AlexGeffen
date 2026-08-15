@@ -27,7 +27,7 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
       <div className="mt-5 grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-start">
         <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-navy/10">
           {person.image ? (
-            <Image src={person.image} alt={person.name} fill priority sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" style={{ objectPosition: person.imagePosition ?? 'center' }} />
+            <Image src={person.image} alt={person.name} fill priority quality={90} sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover object-top" />
           ) : (
             <div className="flex h-full items-end bg-navy p-8 text-paper"><span className="wordmark text-5xl">CS</span></div>
           )}

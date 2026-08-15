@@ -34,7 +34,7 @@ export const filmmakers: Person[] = [
   {
     name: 'Cass Huckabay',
     role: 'Producer / Co-Director',
-    image: '/media/cast/cass-huckabay.jpg',
+    image: '/media/cast/cass-huckabay.webp',
     bio: 'Cass Huckabay is an actor, director, and producer based in Los Angeles whose work spans both sides of the camera. After acting in nine feature films, she brings a deep understanding of performance and storytelling to her directorial debut, as well as a keen eye for creative detail. Cass is currently producing a feature in collaboration with Om Films (Paper Tiger), as well as 3 other feature films and an unannounced TV series.',
   },
 ];
@@ -63,7 +63,7 @@ export const festivals: Festival[] = [
   { name: 'Midwest Weirdfest', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Best Short Thriller', laurelDark: '/media/festivals/midwest-dark.png', laurelLight: '/media/festivals/midwest-light.png' },
   { name: 'BraveMaker Film Fest', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/bravemaker-dark.png', laurelLight: '/media/festivals/bravemaker-light.png' },
   { name: 'GenreBlast Film Festival', date: 'September 3–6, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/genreblast-dark.png', laurelLight: '/media/festivals/genreblast-light.png' },
-  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png', laurelTone: 'monochrome' },
+  { name: 'Brooklyn SciFi Film Festival', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-dark.png', laurelLight: '/media/festivals/brooklyn-light.png' },
   { name: 'Tees Valley International Film Festival', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-dark.png', laurelLight: '/media/festivals/tees-light.png' },
 ];
 

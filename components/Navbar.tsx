@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NAV_LINKS } from '@/constants';
 import IntentLink from './IntentLink';
+import OfficialTitle from './OfficialTitle';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -12,11 +13,29 @@ export default function Navbar() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open]);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper/95 backdrop-blur-md">
       <div className="page-shell flex h-14 items-center justify-between">
         <IntentLink href="/" aria-label="Clean Slate home" className="wordmark rounded-md px-2 py-1 text-[1.65rem] transition hover:bg-panel">
-          Clean Slate
+          <span className="hidden w-40 lg:block">
+            <OfficialTitle onLight priority sizes="10rem" />
+          </span>
+          <span className="lg:hidden">CS</span>
         </IntentLink>
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
@@ -50,19 +69,22 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t border-line bg-paper py-2 lg:hidden">
-          <div className="page-shell grid grid-cols-2 gap-1 pb-1">
-            {NAV_LINKS.map((link) => (
-              <IntentLink
-                key={link.path}
-                href={link.path}
-                className={`rounded-md px-3 py-2.5 text-sm font-medium transition ${pathname === link.path || (link.path !== '/' && pathname.startsWith(`${link.path}/`)) ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
-              >
-                {link.name}
-              </IntentLink>
-            ))}
-          </div>
-        </nav>
+        <>
+          <button type="button" aria-label="Close navigation" onClick={() => setOpen(false)} className="fixed inset-x-0 bottom-0 top-14 z-40 bg-black/35 lg:hidden" />
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="fixed right-0 top-14 z-50 h-[calc(100svh-3.5rem)] w-[min(100%,24rem)] overflow-y-auto border-l border-line bg-paper py-3 shadow-2xl lg:hidden">
+            <div className="page-shell grid grid-cols-1 gap-1 pb-4">
+              {NAV_LINKS.map((link) => (
+                <IntentLink
+                  key={link.path}
+                  href={link.path}
+                  className={`rounded-md px-3 py-3 text-sm font-medium transition ${pathname === link.path || (link.path !== '/' && pathname.startsWith(`${link.path}/`)) ? 'bg-panel text-ink shadow-sm' : 'text-muted hover:bg-panel hover:text-ink'}`}
+                >
+                  {link.name}
+                </IntentLink>
+              ))}
+            </div>
+          </nav>
+        </>
       ) : null}
     </header>
   );
