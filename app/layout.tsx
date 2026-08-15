@@ -14,6 +14,8 @@ const progress = localFont({
   display: 'swap',
 });
 
+const shareTitle = 'Clean Slate | Short Film - Geffen & Huckabee';
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f7f7f6' },
@@ -32,12 +34,12 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: {
     type: 'video.movie',
-    title: 'Clean Slate',
+    title: shareTitle,
     description: 'Alex Geffen | Cass Huckabay',
     url: '/',
     images: [{ url: '/media/stills/trevor-crib.jpg', width: 1800, height: 1012, alt: 'Trevor at the crib in Clean Slate' }],
   },
-  twitter: { card: 'summary_large_image', title: 'Clean Slate', description: 'Alex Geffen | Cass Huckabay', images: ['/media/stills/trevor-crib.jpg'] },
+  twitter: { card: 'summary_large_image', title: shareTitle, description: 'Alex Geffen | Cass Huckabay', images: ['/media/stills/trevor-crib.jpg'] },
 };
 
 const movieJsonLd = {
