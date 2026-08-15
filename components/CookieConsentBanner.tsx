@@ -16,6 +16,14 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
     if (gpcChecked && gpcEnabled && preferences?.analytics !== false) updatePreferences({ analytics: false });
   }, [gpcChecked, gpcEnabled, preferences?.analytics, updatePreferences]);
 
+  const handleAcceptAll = () => {
+    if (!gpcChecked || gpcEnabled) {
+      rejectNonEssential();
+      return;
+    }
+    acceptAll();
+  };
+
   if (!showBanner) return null;
 
   return (
@@ -27,19 +35,19 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
           <ChevronDown size={16} className={`shrink-0 transition ${expanded ? 'rotate-180' : ''}`} />
         </button>
         <div className="flex flex-wrap items-center gap-2">
-          <button type="button" onClick={acceptAll} className="min-h-9 rounded-md bg-ink px-3 text-[0.68rem] font-semibold text-paper transition hover:bg-navy">Accept all</button>
+          <button type="button" onClick={handleAcceptAll} disabled={!gpcChecked} className="min-h-9 rounded-md bg-ink px-3 text-[0.68rem] font-semibold text-paper transition hover:bg-navy disabled:cursor-wait disabled:opacity-60">{!gpcChecked ? 'Checking privacy…' : gpcEnabled ? 'Essential only' : 'Accept all'}</button>
           <button type="button" onClick={rejectNonEssential} className="min-h-9 rounded-md border border-line px-3 text-[0.68rem] font-semibold transition hover:bg-paper">Essential only</button>
           {preferences && <button type="button" onClick={closeBanner} aria-label="Close privacy choices" className="grid h-10 w-10 place-items-center rounded-md transition hover:bg-paper"><X size={17} /></button>}
         </div>
       </div>
       {expanded && (
         <div className="mt-4 grid gap-4 border-t border-line pt-4 sm:grid-cols-[1fr_auto] sm:items-center">
-          <div><p className="text-sm font-semibold">Anonymous analytics</p><p className="mt-1 text-xs leading-5 text-muted">Optional page and device measurements used to improve the site. Global Privacy Control keeps this disabled.</p></div>
+          <div><p className="text-sm font-semibold">Anonymous analytics</p><p className="mt-1 text-xs leading-5 text-muted">Optional page and device measurements, when enabled, are used to improve the site. Global Privacy Control keeps this disabled.</p></div>
           <button
             type="button"
             role="switch"
             aria-checked={preferences?.analytics === true}
-            disabled={gpcEnabled}
+            disabled={!gpcChecked || gpcEnabled}
             onClick={() => updatePreferences({ analytics: preferences?.analytics !== true })}
             className={`relative h-7 w-12 rounded-full transition ${preferences?.analytics === true ? 'bg-navy dark:bg-accent' : 'bg-line'} disabled:opacity-50`}
           >

@@ -177,6 +177,27 @@ a, button, summary, input, select, textarea { outline-offset: 4px; }
   text-transform: uppercase;
 }
 
+.legal-copy {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+
+.legal-copy p + p { margin-top: 0.75rem; }
+.legal-copy ul,
+.legal-copy ol { margin-top: 0.75rem; padding-left: 1.25rem; }
+.legal-copy ul { list-style: disc; }
+.legal-copy ol { list-style: decimal; }
+.legal-copy li + li { margin-top: 0.5rem; }
+.legal-copy a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 .compact-link {
   display: inline-flex;
   min-height: 2.5rem;
