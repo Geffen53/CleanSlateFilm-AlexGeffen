@@ -32,10 +32,9 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper/95 backdrop-blur-md">
       <div className="page-shell flex h-14 items-center justify-between">
         <IntentLink href="/" aria-label="Clean Slate home" className="wordmark rounded-md px-2 py-1 text-[1.65rem] transition hover:bg-panel">
-          <span className="hidden w-40 lg:block">
+          <span className="block w-36 sm:w-44 lg:w-40">
             <OfficialTitle onLight priority sizes="10rem" />
           </span>
-          <span className="lg:hidden">CS</span>
         </IntentLink>
 
         <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
