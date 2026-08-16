@@ -1,35 +1,36 @@
 # Compliance drift and future risk audit
 
-**Review date:** August 15, 2026  
+**Review date:** August 16, 2026
 **Scope:** the Clean Slate public Next.js site, repository workflow, contact path, browser privacy controls, embedded media, and legal-information surfaces.  
 **Purpose:** identify how a low-data static site could regress as new code, vendors, or marketing requests are introduced. This is an engineering risk review, not legal advice or a certification.
+
+**Remediation status:** The unused Gmail/Nodemailer Server Action has been removed; Next.js is patched; `npm audit --omit=dev` is clean; security headers and a static-only build boundary check are now enforced in source; `vercel.json` runs the fail-closed verification command. Provider-dashboard controls and a formal CI runner still require verification outside this checkout.
 
 ## Executive drift risk summary
 
 The site has a relatively small current privacy footprint: there are no accounts, payments, user profiles, advertising pixels, or active analytics SDKs in the repository. Contact is presented as a `mailto:` flow, and the public legal links are now complete enough to explain the current site behavior.
 
-The durable risk is process, not today’s collection volume. There is no repository CI workflow, compliance-sensitive change gate, third-party inventory, owner, retention schedule, or documented release checklist. A future contributor can add a script, analytics SDK, form submission, or marketing tag faster than the privacy policy can be updated. The dormant Gmail server action is another clear path for the live contact boundary to change without a corresponding provider and retention review.
+The durable risk is still process, not today’s collection volume. The site now has a build-time static-boundary check, dependency audit command, and header baseline, but there is no hosted CI workflow, third-party inventory, owner, retention schedule, or documented release approval. A future contributor can still add a script, analytics SDK, form submission, or marketing tag faster than the privacy policy can be updated unless the verification command is required by the deployment platform.
 
 ## Critical drift vectors
 
 1. **Consent can become decorative.** The consent state exists, but no inventory binds a provider or data flow to the `analytics` choice. A future SDK could be loaded before consent or without honoring GPC.
 2. **Third-party media can expand silently.** The homepage loads remote MP4 media, while external media and social URLs are spread across data and page components. There is no allowlist or review record for new origins.
-3. **The contact boundary can change by convenience.** `app/actions/contact.ts` contains a Gmail/Nodemailer server action, while the live UI is intentionally `mailto:`. Wiring that action would create server-side personal-data processing, credentials, logs, and retention obligations.
-4. **Release controls are mostly social.** No checked-in CI, code-owner rule, pull-request template, or automated policy check requires a privacy/accessibility review.
+3. **The contact boundary can change by convenience.** The live UI is intentionally `mailto:` and the build check rejects `app/actions`, `app/api`, and mail-relay dependencies. Bypassing or weakening that check would create server-side personal-data processing, credentials, logs, and retention obligations.
+4. **Release controls are still partly social.** The repository has a checked-in verification command, but no hosted CI, code-owner rule, pull-request template, or automated privacy/accessibility review.
 
 ## High-risk process failures
 
 - No automated check detects new `next/script`, iframe origins, tracking packages, server-side form persistence, or changes to legal routes.
 - No named owner is recorded for privacy, accessibility, third-party vendors, rights permissions, or inquiry retention.
-- The repository guidance correctly says not to wire Gmail SMTP, but that rule is easy to miss and is not enforced by code.
-- `next.config.mjs` declares media caching but no CSP, permissions policy, or other security-header baseline. Production hosting settings are not represented in this repository.
-- There is no test script or focused compliance test suite; build success does not prove consent ordering, GPC behavior, provider behavior, or rights accuracy.
+- The static-only boundary is enforced by `npm run security:check`, but a contributor can still modify the check unless branch/CI review protects it.
+- `next.config.mjs` now declares CSP, permissions policy, clickjacking, referrer, transport, and media-cache headers. Production edge settings are not represented in this repository.
+- The Vercel verification command proves dependency/build/header source state, not consent ordering, GPC behavior, provider behavior, or rights accuracy in a real browser.
 
 ## Medium and low-risk process gaps
 
-- The README contains generic AI Studio/photo-generation directions that do not document the current legal, consent, or deployment model.
 - Retention of inquiry email, hosting logs, and provider records is described qualitatively but has no owner or review interval.
-- The consent utility has a broad `clearAllCookies()` helper that clears all local storage; it is currently unused, but a future consumer could erase unrelated application state.
+- The consent utility is browser-local and not legal evidence; a future data collector must not treat it as server authorization.
 - There is no recurring accessibility review or third-party PDF/player check.
 
 ## Change pathway analysis
@@ -38,7 +39,7 @@ The durable risk is process, not today’s collection volume. There is no reposi
 | --- | --- | --- | --- |
 | Marketing or growth request | No marketing scripts in source | A copied tag or pixel bypasses consent | Review all new scripts and origins; fail CI on unapproved additions |
 | Video or social promotion | Remote MP4 media plus external links | New provider receives identifiers or changes terms | Maintain a provider inventory and privacy/terms link per provider |
-| Contact improvement | Live `mailto:`; dormant server action exists | Form data is stored or sent through Gmail without notice | Provider, retention, security, and policy review before wiring |
+| Contact improvement | Live `mailto:`; build rejects server actions and mail-relay dependencies | A check is weakened and form data is stored or sent through a provider without notice | Provider, retention, security, and policy review before wiring |
 | Experiment or feature flag | No feature-flag framework found | Temporary tracking or copy becomes permanent | Expiration owner and removal date for every experiment |
 | Emergency release | No checked-in release gate | Hotfix ships without legal/accessibility review | Minimum two-person review or documented exception owner |
 
@@ -48,11 +49,11 @@ The durable risk is process, not today’s collection volume. There is no reposi
 
 ## Tooling and script-injection risks
 
-The repository currently has no `next/script`, analytics package, pixel, or tag-manager usage. The meaningful external surfaces are the remote trailer/loop media, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact because there is no centralized allowlist, CSP, consent loader, or automated diff check.
+The repository currently has no `next/script`, analytics package, pixel, or tag-manager usage. The meaningful external surfaces are the remote trailer/loop media, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact; CSP now provides a default deny/allowlist baseline, but the origin still needs an inventory entry and review.
 
 ## Cultural and incentive misalignments
 
-The easiest path is currently the least documented path: paste a vendor snippet, add a tracking dependency, or connect the existing Gmail action. Marketing deadlines and “temporary” experiments would reward speed over review because the repository has no friction at those boundaries. The site should make the safe path easier than the shortcut through a short checklist and an automated inventory check.
+The easiest path remains the least documented path: paste a vendor snippet, add a tracking dependency, or weaken the static-boundary check. Marketing deadlines and “temporary” experiments would reward speed over review unless `npm run verify` is required by CI/deployment. The site should make the safe path easier than the shortcut through a short checklist and an automated inventory check.
 
 ## Unknown-unknown observations
 
@@ -64,7 +65,7 @@ The easiest path is currently the least documented path: paste a vendor snippet,
 ## What will break first under pressure
 
 1. A deadline-driven analytics or marketing tag will be added before consent and provider review.
-2. A contact form will be wired to the existing server action, changing the data boundary without an updated notice.
+2. A contact form will be added by weakening or bypassing the static-boundary check, changing the data boundary without an updated notice.
 3. A new video or press service will be embedded without an inventory entry, accessibility check, or opt-out explanation.
 
 ## What will quietly regress over 6–12 months
@@ -91,4 +92,4 @@ The easiest path is currently the least documented path: paste a vendor snippet,
 
 ## Compliance durability score
 
-**5/10 — low current data exposure, weak future-change durability.** The public site is simple and the current legal pages now describe the real contact, storage, media, GPC, rights, and accessibility boundaries. The score stays near the middle because the safeguards depend on contributor memory: there is no CI enforcement, provider inventory, named owner, production-header baseline, or recurring review loop. The highest-value next step is adding those controls before the next marketing, analytics, or contact-system change.
+**7/10 — low current data exposure, improved code-level durability, incomplete operational proof.** The static boundary, patched dependency graph, source-controlled headers, and verification command materially reduce current risk. The score is not higher because there is still no hosted CI enforcement, provider inventory, named owner, recurring review loop, or verified Vercel/media/Gmail operational configuration.

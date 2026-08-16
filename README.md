@@ -1,23 +1,26 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Clean Slate film site
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/drive/1VE_eCmeUlTqNGqE8EllIbxK_N_WL7cgR
+Public, static-first Next.js site for the Clean Slate short film. The site has no accounts, API routes, database, analytics SDK, or server-side contact form. Contact remains a direct `mailto:` link.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js 20.9+
 
+```sh
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Production verification
+
+```sh
+npm run security:check
+npm audit --omit=dev --audit-level=high
+npm run build
+npm run start
+```
+
+`security:check` intentionally fails if a server route, Server Action, proxy/middleware, local env file, or mail-relay dependency is introduced. See [docs/security-baseline.md](docs/security-baseline.md) before changing the data or deployment boundary.
 
 ## Regenerating gallery data
 

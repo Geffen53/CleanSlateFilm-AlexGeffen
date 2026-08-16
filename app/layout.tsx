@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: shareTitle, description: 'Alex Geffen | Cass Huckabay', images: ['/media/stills/trevor-crib.jpg'] },
 };
 
+// Keep this project statically renderable. A future request-time data source,
+// cookie read, or server-only mutation must fail the build until its threat,
+// rate-limit, and cost boundary is reviewed explicitly.
+export const dynamic = 'error';
+
 const movieJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Movie',
@@ -54,6 +59,10 @@ const movieJsonLd = {
   inLanguage: 'en',
   director: [{ '@type': 'Person', name: 'Alex Geffen' }, { '@type': 'Person', name: 'Cass Huckabay' }],
 };
+
+// Keep the trusted structured-data sink safe if a future metadata value contains
+// markup-like characters. Escaping `<` prevents an early `</script>` terminator.
+const movieJsonLdString = JSON.stringify(movieJsonLd).replace(/</g, '\\u003c');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -68,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CookieConsentBanner />
           </CookieConsentProvider>
         </Providers>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(movieJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: movieJsonLdString }} />
       </body>
     </html>
   );
