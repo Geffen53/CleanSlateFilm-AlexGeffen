@@ -25,6 +25,9 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [{ source: '/videos', destination: '/#trailer', permanent: true }];
+  },
 };
 
 export default nextConfig;

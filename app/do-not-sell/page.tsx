@@ -49,7 +49,7 @@ export default function DoNotSellPage() {
           title: 'Embedded media and other providers',
           body: (
             <>
-              <p>The YouTube trailer and links to services such as Instagram, IMDb, email applications, and a media host can involve independent providers. When you load or interact with those services, they may receive technical information under their own policies.</p>
+              <p>The trailer media host and links to services such as Instagram, IMDb, and email applications can involve independent providers. When you load or interact with those services, they may receive technical information under their own policies.</p>
               <p>We do not instruct those providers to use Clean Slate contact information for targeted advertising. To avoid a provider’s independent processing, do not load or interact with its embedded player or follow its link.</p>
             </>
           ),

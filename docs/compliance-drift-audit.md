@@ -13,7 +13,7 @@ The durable risk is process, not today’s collection volume. There is no reposi
 ## Critical drift vectors
 
 1. **Consent can become decorative.** The consent state exists, but no inventory binds a provider or data flow to the `analytics` choice. A future SDK could be loaded before consent or without honoring GPC.
-2. **Third-party embeds can expand silently.** The video page loads a YouTube iframe, while external media and social URLs are spread across data and page components. There is no allowlist or review record for new origins.
+2. **Third-party media can expand silently.** The homepage loads remote MP4 media, while external media and social URLs are spread across data and page components. There is no allowlist or review record for new origins.
 3. **The contact boundary can change by convenience.** `app/actions/contact.ts` contains a Gmail/Nodemailer server action, while the live UI is intentionally `mailto:`. Wiring that action would create server-side personal-data processing, credentials, logs, and retention obligations.
 4. **Release controls are mostly social.** No checked-in CI, code-owner rule, pull-request template, or automated policy check requires a privacy/accessibility review.
 
@@ -37,7 +37,7 @@ The durable risk is process, not today’s collection volume. There is no reposi
 | Pathway | Current boundary | Likely drift | Required guardrail |
 | --- | --- | --- | --- |
 | Marketing or growth request | No marketing scripts in source | A copied tag or pixel bypasses consent | Review all new scripts and origins; fail CI on unapproved additions |
-| Video or social promotion | YouTube iframe plus external links | New provider receives identifiers or changes terms | Maintain a provider inventory and privacy/terms link per provider |
+| Video or social promotion | Remote MP4 media plus external links | New provider receives identifiers or changes terms | Maintain a provider inventory and privacy/terms link per provider |
 | Contact improvement | Live `mailto:`; dormant server action exists | Form data is stored or sent through Gmail without notice | Provider, retention, security, and policy review before wiring |
 | Experiment or feature flag | No feature-flag framework found | Temporary tracking or copy becomes permanent | Expiration owner and removal date for every experiment |
 | Emergency release | No checked-in release gate | Hotfix ships without legal/accessibility review | Minimum two-person review or documented exception owner |
@@ -48,7 +48,7 @@ The durable risk is process, not today’s collection volume. There is no reposi
 
 ## Tooling and script-injection risks
 
-The repository currently has no `next/script`, analytics package, pixel, or tag-manager usage. The meaningful external surfaces are the YouTube embed, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact because there is no centralized allowlist, CSP, consent loader, or automated diff check.
+The repository currently has no `next/script`, analytics package, pixel, or tag-manager usage. The meaningful external surfaces are the remote trailer/loop media, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact because there is no centralized allowlist, CSP, consent loader, or automated diff check.
 
 ## Cultural and incentive misalignments
 
@@ -56,7 +56,7 @@ The easiest path is currently the least documented path: paste a vendor snippet,
 
 ## Unknown-unknown observations
 
-- Vercel project settings, DNS/CDN logs, email-provider retention, and YouTube configuration are outside the repository and therefore outside this evidence set.
+- Vercel project settings, DNS/CDN logs, email-provider retention, and media-host configuration are outside the repository and therefore outside this evidence set.
 - A future press-kit replacement could introduce an inaccessible PDF or new embedded viewer without a source diff that looks privacy-sensitive.
 - A change to `data/film.ts` can alter a third-party URL without touching any legal page, so URL review must include data files.
 - The current static build proves route generation, not production headers, consent behavior in a real browser, or provider-side processing.
@@ -92,4 +92,3 @@ The easiest path is currently the least documented path: paste a vendor snippet,
 ## Compliance durability score
 
 **5/10 — low current data exposure, weak future-change durability.** The public site is simple and the current legal pages now describe the real contact, storage, media, GPC, rights, and accessibility boundaries. The score stays near the middle because the safeguards depend on contributor memory: there is no CI enforcement, provider inventory, named owner, production-header baseline, or recurring review loop. The highest-value next step is adding those controls before the next marketing, analytics, or contact-system change.
-

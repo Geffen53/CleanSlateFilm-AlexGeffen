@@ -32,7 +32,7 @@ export default function AccessibilityStatement() {
           title: 'Media and downloadable materials',
           body: (
             <>
-              <p>The trailer is delivered through YouTube’s embedded player, and the press kit is hosted as a downloadable PDF. These services and files can have limitations that are outside the site shell, including player controls, captions, document tagging, or keyboard behavior.</p>
+              <p>The trailer is delivered through an HTML video player, and the press kit is hosted as a downloadable PDF. These services and files can have limitations that are outside the site shell, including player controls, captions, document tagging, or keyboard behavior.</p>
               <p>If a video, image, or document prevents you from getting the information you need, contact us. We can help identify an alternate way to access the relevant press or film information when available.</p>
             </>
           ),
@@ -49,7 +49,7 @@ export default function AccessibilityStatement() {
         {
           title: 'Third-party services',
           body: (
-            <p>Links and embedded services such as YouTube, Instagram, IMDb, and email applications are operated by their respective providers. Their accessibility features, content, and support processes are governed by those providers, not by Clean Slate.</p>
+            <p>Links and services such as the media host, Instagram, IMDb, and email applications are operated by their respective providers. Their accessibility features, content, and support processes are governed by those providers, not by Clean Slate.</p>
           ),
         },
       ]}

@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           title: 'Embedded media and external links',
           body: (
             <>
-              <p>The trailer uses YouTube’s privacy-enhanced embedded domain. Loading or interacting with an embedded player can send technical information to YouTube, and links to services such as Instagram, IMDb, email applications, or a media host take you to systems operated by other companies.</p>
+              <p>The trailer is streamed from the Clean Slate media host. Loading or interacting with the player, or following links to services such as Instagram, IMDb, or email applications, can involve systems operated by other companies.</p>
               <p>Those providers may use cookies or similar technologies and may process information under their own notices. Review their policies and settings before using a linked service. We do not control their independent processing.</p>
             </>
           ),

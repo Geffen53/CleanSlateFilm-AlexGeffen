@@ -54,7 +54,7 @@ export default function TermsPage() {
         {
           title: 'Third-party services',
           body: (
-            <p>The site links to or embeds services such as YouTube, Instagram, IMDb, email applications, and a media host. Those services are not controlled by Clean Slate. Their availability, content, privacy practices, accessibility, and terms are governed by their own providers.</p>
+            <p>The site links to or uses services such as a media host, Instagram, IMDb, and email applications. Those services are not controlled by Clean Slate. Their availability, content, privacy practices, accessibility, and terms are governed by their own providers.</p>
           ),
         },
         {

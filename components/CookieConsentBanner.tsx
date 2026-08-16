@@ -35,7 +35,7 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
           <ChevronDown size={16} className={`shrink-0 transition ${expanded ? 'rotate-180' : ''}`} />
         </button>
         <div className="flex flex-wrap items-center gap-2">
-          <button type="button" onClick={handleAcceptAll} disabled={!gpcChecked} className="min-h-9 rounded-md bg-ink px-3 text-[0.68rem] font-semibold text-paper transition hover:bg-navy disabled:cursor-wait disabled:opacity-60">{!gpcChecked ? 'Checking privacy…' : gpcEnabled ? 'Essential only' : 'Accept all'}</button>
+          <button type="button" onClick={handleAcceptAll} disabled={!gpcChecked} className="min-h-9 rounded-md bg-[#eee9d8] px-3 text-[0.68rem] font-semibold text-navy transition hover:bg-[#eee9d8]/85 disabled:cursor-wait disabled:opacity-60">{!gpcChecked ? 'Checking privacy…' : gpcEnabled ? 'Essential only' : 'Accept all'}</button>
           <button type="button" onClick={rejectNonEssential} className="min-h-9 rounded-md border border-line px-3 text-[0.68rem] font-semibold transition hover:bg-paper">Essential only</button>
           {preferences && <button type="button" onClick={closeBanner} aria-label="Close privacy choices" className="grid h-10 w-10 place-items-center rounded-md transition hover:bg-paper"><X size={17} /></button>}
         </div>

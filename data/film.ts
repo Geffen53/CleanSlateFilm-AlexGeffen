@@ -7,7 +7,8 @@ export const film = {
   descriptor: 'A dystopian sci-fi that tackles social issues and the ripple effects of trauma.',
   contactEmail: 'CleanSlateProduction@gmail.com',
   imdbUrl: 'https://www.imdb.com/title/tt36970118/',
-  trailerUrl: 'https://www.youtube-nocookie.com/embed/vlGzqpS5-n8',
+  trailerUrl: 'https://media.cleanslatefilm.com/video/CLST_TRAILER_MASTER_1080.mp4',
+  heroVideoUrl: 'https://media.cleanslatefilm.com/video/CleanSlate_Website%20loop.mp4',
   pressKit: 'https://media.cleanslatefilm.com/press/clean-slate-press-kit.pdf',
   facts: [
     ['Genre', 'Sci-fi, Thriller, Drama'],

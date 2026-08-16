@@ -4,6 +4,7 @@ import IntentLink from '@/components/IntentLink';
 import FestivalCard from '@/components/FestivalCard';
 import OfficialTitle from '@/components/OfficialTitle';
 import StillLightbox from '@/components/StillLightbox';
+import TrailerPlayer from '@/components/TrailerPlayer';
 import { festivals, film, stills } from '@/data/film';
 
 const heroActionClass = 'action-secondary !bg-black/25 !text-[#eee9d8] !shadow-[inset_0_0_0_1px_rgba(238,233,216,0.45)] hover:!bg-[#eee9d8]/15';
@@ -12,14 +13,24 @@ export default function HomePage() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-navy pt-14 text-[#eee9d8]">
+        <video
+          className="absolute inset-0 -z-20 h-full w-full object-cover motion-reduce:hidden"
+          src={film.heroVideoUrl}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
         <Image
-          src="/media/stills/eric-trevor.jpg"
+          src="/media/trailer-artwork.jpg"
           alt=""
           fill
           priority
           quality={90}
           sizes="100vw"
-          className="-z-20 object-cover object-center opacity-50"
+          className="-z-30 object-cover object-center opacity-50"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(5,11,12,0.92)_0%,rgba(5,11,12,0.72)_55%,rgba(5,11,12,0.42)_100%)]" />
 
@@ -34,9 +45,24 @@ export default function HomePage() {
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#eee9d8]/85 sm:text-base md:mt-4 md:text-lg md:leading-8">{film.synopsis}</p>
             <div className="mt-5 flex flex-wrap gap-2.5">
               <IntentLink href="/film" className={heroActionClass}>Discover the film</IntentLink>
-              <IntentLink href="/videos" className={heroActionClass}>Trailer</IntentLink>
+              <a href="#trailer" className={heroActionClass}>Watch the trailer</a>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="trailer" className="bg-panel py-9 md:py-12" aria-labelledby="trailer-heading">
+        <div className="page-shell">
+          <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-kicker">Official trailer</p>
+              <h2 id="trailer-heading" className="section-title mt-1">Watch Clean Slate</h2>
+            </div>
+            <p className="max-w-sm text-xs leading-5 text-muted">Select play to begin. Player controls appear once playback starts.</p>
+          </div>
+          <div className="overflow-hidden rounded-md bg-navy shadow-[0_16px_40px_rgba(5,11,12,0.14)]">
+            <TrailerPlayer src={film.trailerUrl} poster="/media/trailer-artwork.jpg" label="Clean Slate official trailer" />
+          </div>
         </div>
       </section>
 
