@@ -58,7 +58,7 @@ export default function HomePage() {
               <p className="section-kicker">Official trailer</p>
               <h2 id="trailer-heading" className="section-title mt-1">Watch Clean Slate</h2>
             </div>
-            <p className="max-w-sm text-xs leading-5 text-muted">Select play to begin. Player controls appear once playback starts.</p>
+            <p className="sr-only">Select play to begin. Player controls appear once playback starts.</p>
           </div>
           <div className="overflow-hidden rounded-md bg-navy shadow-[0_16px_40px_rgba(5,11,12,0.14)]">
             <TrailerPlayer src={film.trailerUrl} poster="/media/trailer-artwork.jpg" label="Clean Slate official trailer" />
