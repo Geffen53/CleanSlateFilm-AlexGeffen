@@ -51,7 +51,7 @@ export function CookieConsentBanner({ className = '' }: { className?: string }) 
             onClick={() => updatePreferences({ analytics: preferences?.analytics !== true })}
             className={`relative h-7 w-12 rounded-full transition ${preferences?.analytics === true ? 'bg-navy dark:bg-accent' : 'bg-line'} disabled:opacity-50`}
           >
-            <span className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow transition ${preferences?.analytics === true ? 'left-6' : 'left-1'}`} />
+            <span className={`absolute top-1 h-5 w-5 rounded-full bg-[#eee9d8] shadow transition ${preferences?.analytics === true ? 'left-6' : 'left-1'}`} />
             <span className="sr-only">Toggle anonymous analytics</span>
           </button>
           <p className="text-xs text-muted sm:col-span-2">Read the <Link href="/privacy" prefetch={false} className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy policy</Link> or manage a <Link href="/do-not-sell" prefetch={false} className="font-semibold text-ink underline decoration-accent underline-offset-4">privacy request</Link>.</p>

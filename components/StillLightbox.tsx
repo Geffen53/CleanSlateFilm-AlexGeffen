@@ -76,7 +76,7 @@ export default function StillLightbox({
           role="dialog"
           aria-modal="true"
           aria-label={`${alt} full frame`}
-          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-navy/95 p-4 text-white sm:p-8"
+          className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-navy/95 p-4 text-[#eee9d8] sm:p-8"
           onClick={(event) => {
             if (event.target === event.currentTarget) closeViewer();
           }}
@@ -86,7 +86,7 @@ export default function StillLightbox({
             type="button"
             onClick={closeViewer}
             aria-label="Close full-frame image"
-            className="absolute right-4 top-4 z-10 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-white/10 text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 inline-flex min-h-11 min-w-11 items-center justify-center rounded-md bg-[#eee9d8]/10 text-[#eee9d8] transition hover:bg-[#eee9d8]/20"
           >
             <X size={20} aria-hidden="true" />
           </button>

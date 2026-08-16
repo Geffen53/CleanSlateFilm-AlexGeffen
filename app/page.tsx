@@ -6,12 +6,12 @@ import OfficialTitle from '@/components/OfficialTitle';
 import StillLightbox from '@/components/StillLightbox';
 import { festivals, film, stills } from '@/data/film';
 
-const heroActionClass = 'action-secondary !bg-black/25 !text-white !shadow-[inset_0_0_0_1px_rgba(255,255,255,0.45)] hover:!bg-white/15';
+const heroActionClass = 'action-secondary !bg-black/25 !text-[#eee9d8] !shadow-[inset_0_0_0_1px_rgba(238,233,216,0.45)] hover:!bg-[#eee9d8]/15';
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-navy pt-14 text-white">
+      <section className="relative isolate overflow-hidden bg-navy pt-14 text-[#eee9d8]">
         <Image
           src="/media/stills/eric-trevor.jpg"
           alt=""
@@ -30,8 +30,8 @@ export default function HomePage() {
                 <OfficialTitle priority sizes="(min-width: 1024px) 48rem, 100vw" className="max-w-none" />
               </span>
             </h1>
-            <p className="mt-2 text-xs font-medium text-white/70 md:mt-3 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-white/85 sm:text-base md:mt-4 md:text-lg md:leading-8">{film.synopsis}</p>
+            <p className="mt-2 text-xs font-medium text-[#eee9d8]/70 md:mt-3 md:text-sm">A film by Alex Geffen & Cass Huckabay</p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#eee9d8]/85 sm:text-base md:mt-4 md:text-lg md:leading-8">{film.synopsis}</p>
             <div className="mt-5 flex flex-wrap gap-2.5">
               <IntentLink href="/film" className={heroActionClass}>Discover the film</IntentLink>
               <IntentLink href="/videos" className={heroActionClass}>Trailer</IntentLink>
@@ -60,9 +60,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy py-9 text-white md:py-12">
+      <section className="bg-navy py-9 text-[#eee9d8] md:py-12">
         <div className="page-shell">
-          <h2 className="section-title text-white">Festival journey</h2>
+          <h2 className="section-title text-[#eee9d8]">Festival journey</h2>
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {festivals.map((festival) => (
               <FestivalCard key={festival.name} festival={festival} surface="navy" />
