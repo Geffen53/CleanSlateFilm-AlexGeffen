@@ -38,9 +38,11 @@ export default async function CastProfilePage({ params }: ProfilePageProps) {
             <h1 className="display-title">{profile.name}</h1>
             {profile.knownFor && <p className="mt-4 text-base leading-6 text-muted">{profile.knownFor}</p>}
             <div className="mt-7 space-y-7 border-t border-line pt-5">
-              {profile.roles.map((role) => {
+              {profile.roles.map((role, index) => {
                 const castRole = cast.some((castMember) => castMember === role);
-                return <section key={`${role.role}-${role.bio}`}><h2 className="text-lg font-semibold">{castRole ? `${profile.name} as ${role.role}` : role.role}</h2><p className="body-copy mt-3">{role.bio}</p></section>;
+                const displayName = index === 0 ? profile.name : 'Alex';
+                const bio = index === 0 ? role.bio : role.bio.replaceAll(profile.name, displayName);
+                return <section key={`${role.role}-${role.bio}`}><h2 className="text-lg font-semibold">{castRole ? `${displayName} as ${role.role}` : role.role}</h2><p className="body-copy mt-3">{bio}</p></section>;
               })}
             </div>
           </div>
