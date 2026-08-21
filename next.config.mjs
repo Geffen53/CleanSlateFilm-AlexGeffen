@@ -11,7 +11,7 @@ const contentSecurityPolicy = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isProduction ? '' : " 'unsafe-eval'"}`,
   "style-src 'self'",
   "style-src-attr 'unsafe-inline'",
   "img-src 'self' data: blob:",
@@ -43,6 +43,7 @@ const nextConfig = {
     // Avoid an unbounded public image-optimization endpoint and its per-request
     // compute/bandwidth exposure. The site ships a fixed local media catalog.
     unoptimized: true,
+    qualities: [75, 90],
   },
   async headers() {
     return [
