@@ -1,6 +1,6 @@
 # Clean Slate film site
 
-Public, static-first Next.js site for the Clean Slate short film. The site has no accounts, API routes, database, analytics SDK, or server-side contact form. Contact remains a direct `mailto:` link.
+Public, static-first Next.js site for the Clean Slate short film. The site has no accounts, API routes, database, or server-side contact form. Optional Vercel Web Analytics is loaded only after an explicit opt-in and remains disabled for Global Privacy Control visitors. Contact remains a direct `mailto:` link.
 
 ## Run Locally
 

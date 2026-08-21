@@ -36,7 +36,7 @@ export default function DoNotSellPage() {
         {
           title: 'Optional analytics',
           body: (
-            <p>Optional anonymous analytics are designed to stay off until you enable them through the privacy choices control. The core pages do not require analytics. You can change the setting at any time with <strong>Privacy preferences</strong> in the footer; changing the setting does not create an account or send us a request to sell your information.</p>
+            <p>Optional Vercel Web Analytics are designed to stay off until you enable them through the privacy choices control. The core pages do not require analytics. You can change the setting at any time with <strong>Privacy preferences</strong> in the footer; changing the setting does not create an account or send us a request to sell your information.</p>
           ),
         },
         {

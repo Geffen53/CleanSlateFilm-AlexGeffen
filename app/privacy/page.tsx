@@ -46,7 +46,16 @@ export default function PrivacyPage() {
           body: (
             <>
               <p>The site stores a theme preference and your privacy-choice record in your browser so the experience can remember display settings and whether optional measurement is allowed. The consent record is essential to the privacy control itself; it does not contain a profile or contact database.</p>
-              <p>Optional anonymous analytics are designed to remain off until you choose to enable them. If a future release activates that measurement, the preference control and this policy will describe the categories and purpose before it is used. You can reopen the control with <strong>Privacy preferences</strong> in the footer.</p>
+              <p>Optional Vercel Web Analytics remain off until you choose to enable them. The site does not load the analytics script while your choice is unknown, declined, or blocked by Global Privacy Control. You can reopen the control with <strong>Privacy preferences</strong> in the footer.</p>
+            </>
+          ),
+        },
+        {
+          title: 'Optional Vercel Web Analytics',
+          body: (
+            <>
+              <p>When enabled, Vercel Web Analytics helps us understand aggregate page visits and which parts of the film site are useful. It is designed to be cookieless and to use anonymous, short-lived visitor measurements rather than a cross-site profile. We do not send custom events, contact messages, email addresses, account identifiers, or advertising data through the integration.</p>
+              <p>Vercel may process an event timestamp, page URL and route, referrer, approximate location, device type, operating system and browser version, and analytics script version. We strip query strings and fragments from URLs before an event is sent. Vercel describes its Web Analytics data practices in its <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noreferrer">Privacy and Compliance documentation</a>.</p>
             </>
           ),
         },

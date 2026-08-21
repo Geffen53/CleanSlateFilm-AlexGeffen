@@ -1,0 +1,7 @@
+# Clean Slate permits public search indexing and real-time AI search input.
+# AI training is not permitted by this site's content signal.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+Sitemap: https://cleanslatefilm.com/sitemap.xml

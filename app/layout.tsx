@@ -4,6 +4,7 @@ import { Providers } from './providers';
 import NavbarWrapper from '@/components/NavbarWrapper';
 import FooterWrapper from '@/components/FooterWrapper';
 import { CookieConsentBanner } from '@/components/CookieConsentBanner';
+import { VercelAnalytics } from '@/components/VercelAnalytics';
 import { CookieConsentProvider } from '@/context/cookie-consent';
 import { film } from '@/data/film';
 import '../index.css';
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
   description: `${film.synopsis} ${film.descriptor}`,
   keywords: ['Clean Slate', 'Alex Geffen', 'Cass Huckabay', 'sci-fi short film', 'thriller', 'Huckabay Productions'],
   alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'video.movie',
     title: shareTitle,
@@ -75,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CookieConsentProvider>
             <FooterWrapper />
             <CookieConsentBanner />
+            <VercelAnalytics />
           </CookieConsentProvider>
         </Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: movieJsonLdString }} />

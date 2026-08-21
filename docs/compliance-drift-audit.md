@@ -1,20 +1,20 @@
 # Compliance drift and future risk audit
 
-**Review date:** August 16, 2026
+**Review date:** August 21, 2026
 **Scope:** the Clean Slate public Next.js site, repository workflow, contact path, browser privacy controls, embedded media, and legal-information surfaces.  
 **Purpose:** identify how a low-data static site could regress as new code, vendors, or marketing requests are introduced. This is an engineering risk review, not legal advice or a certification.
 
-**Remediation status:** The unused Gmail/Nodemailer Server Action has been removed; Next.js is patched; `npm audit --omit=dev` is clean; security headers and a static-only build boundary check are now enforced in source; `vercel.json` runs the fail-closed verification command. Provider-dashboard controls and a formal CI runner still require verification outside this checkout.
+**Remediation status:** The unused Gmail/Nodemailer Server Action has been removed; Next.js is patched; `npm audit --omit=dev` is clean; security headers, the consent-gated Vercel Web Analytics integration, and a static-only build boundary check are now enforced in source; `vercel.json` runs the fail-closed verification command. Provider-dashboard controls and a formal CI runner still require verification outside this checkout.
 
 ## Executive drift risk summary
 
-The site has a relatively small current privacy footprint: there are no accounts, payments, user profiles, advertising pixels, or active analytics SDKs in the repository. Contact is presented as a `mailto:` flow, and the public legal links are now complete enough to explain the current site behavior.
+The site has a relatively small current privacy footprint: there are no accounts, payments, user profiles, advertising pixels, or behavioral marketing tags in the repository. The optional Vercel Web Analytics SDK is loaded only after analytics opt-in and is blocked when Global Privacy Control is enabled. Contact is presented as a `mailto:` flow, and the public legal links describe the current site behavior.
 
 The durable risk is still process, not today’s collection volume. The site now has a build-time static-boundary check, dependency audit command, and header baseline, but there is no hosted CI workflow, third-party inventory, owner, retention schedule, or documented release approval. A future contributor can still add a script, analytics SDK, form submission, or marketing tag faster than the privacy policy can be updated unless the verification command is required by the deployment platform.
 
 ## Critical drift vectors
 
-1. **Consent can become decorative.** The consent state exists, but no inventory binds a provider or data flow to the `analytics` choice. A future SDK could be loaded before consent or without honoring GPC.
+1. **Consent can become decorative.** The current Vercel Web Analytics integration is bound to the `analytics` choice and GPC check, but a future SDK could still be loaded before consent or without honoring those controls.
 2. **Third-party media can expand silently.** The homepage loads remote MP4 media, while external media and social URLs are spread across data and page components. There is no allowlist or review record for new origins.
 3. **The contact boundary can change by convenience.** The live UI is intentionally `mailto:` and the build check rejects `app/actions`, `app/api`, and mail-relay dependencies. Bypassing or weakening that check would create server-side personal-data processing, credentials, logs, and retention obligations.
 4. **Release controls are still partly social.** The repository has a checked-in verification command, but no hosted CI, code-owner rule, pull-request template, or automated privacy/accessibility review.
@@ -37,6 +37,7 @@ The durable risk is still process, not today’s collection volume. The site now
 
 | Pathway | Current boundary | Likely drift | Required guardrail |
 | --- | --- | --- | --- |
+| Analytics measurement | Opt-in Vercel Web Analytics; no custom events; query strings stripped | A copied tag or second SDK bypasses consent or adds identifiers | Keep the provider inventory and privacy-page description aligned with every data-flow change |
 | Marketing or growth request | No marketing scripts in source | A copied tag or pixel bypasses consent | Review all new scripts and origins; fail CI on unapproved additions |
 | Video or social promotion | Remote MP4 media plus external links | New provider receives identifiers or changes terms | Maintain a provider inventory and privacy/terms link per provider |
 | Contact improvement | Live `mailto:`; build rejects server actions and mail-relay dependencies | A check is weakened and form data is stored or sent through a provider without notice | Provider, retention, security, and policy review before wiring |
@@ -49,7 +50,7 @@ The durable risk is still process, not today’s collection volume. The site now
 
 ## Tooling and script-injection risks
 
-The repository currently has no `next/script`, analytics package, pixel, or tag-manager usage. The meaningful external surfaces are the remote trailer/loop media, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact; CSP now provides a default deny/allowlist baseline, but the origin still needs an inventory entry and review.
+The repository uses `@vercel/analytics` through a consent-gated client component; it has no pixel or tag-manager usage. The meaningful external surfaces are the Vercel analytics intake, remote trailer/loop media, outbound Instagram/IMDb/consultant links, the remote press-kit host, the email application, `next-themes`, and hosting/delivery infrastructure. A new script or iframe would be high-impact; CSP now provides a default deny/allowlist baseline, but the origin still needs an inventory entry and review.
 
 ## Cultural and incentive misalignments
 
@@ -85,7 +86,7 @@ The easiest path remains the least documented path: paste a vendor snippet, add 
 
 ## What not to fix yet
 
-- Do not add a consent-management vendor, account system, analytics platform, or marketing pixel merely to appear more complete.
+- Do not add a consent-management vendor, second analytics platform, or marketing pixel merely to appear more complete.
 - Do not build a mock DSAR portal or promise jurisdiction-specific rights, response times, or governing law without confirmed operations and legal review.
 - Do not replace the direct `mailto:` flow with Gmail SMTP until the provider and retention decision is approved.
 - Do not add broad legal boilerplate or fake contact/organization details to fill space.

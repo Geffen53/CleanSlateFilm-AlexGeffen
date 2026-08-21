@@ -1,6 +1,6 @@
 # Security and cost boundary
 
-This site is intentionally a public, static film site. It has no accounts, API routes, Server Actions, database, uploads, payments, analytics SDK, or server-side contact form. Contact remains a `mailto:` link. Because there is no state-changing HTTP endpoint, an application rate limiter is not required today; adding a rate-limit service would create a new secret, dependency, and potentially billable provider without protecting a real endpoint.
+This site is intentionally a public, static film site. It has no accounts, API routes, Server Actions, database, uploads, payments, or server-side contact form. Optional Vercel Web Analytics is the only analytics SDK and is gated by explicit browser consent plus Global Privacy Control; contact remains a `mailto:` link. Because there is no state-changing HTTP endpoint, an application rate limiter is not required today; adding a rate-limit service would create a new secret, dependency, and potentially billable provider without protecting a real endpoint.
 
 ## Enforced repository controls
 
@@ -20,4 +20,4 @@ These controls require access to the hosting/provider dashboards and are not pro
 2. Confirm Vercel usage alerts/spend controls, deployment notifications, and an owner for billing review. A static site can still incur bandwidth charges if media is hotlinked or attacked.
 3. Keep preview deployments protected if they contain unreleased media; confirm production environment variables are empty unless a future approved feature requires them.
 4. Verify the custom domain and every subdomain, including the media host, serve HTTPS and have access/logging settings appropriate for public assets.
-5. If a form, API, webhook, upload, account, or analytics feature is proposed, stop and replace the static-only boundary deliberately. Add provider-level rate limiting/WAF controls, bounded payloads, bot protection, abuse telemetry, and a cost ceiling before merging; do not reintroduce a Server Action as a shortcut.
+5. If a form, API, webhook, upload, account, or additional analytics feature is proposed, stop and review the data boundary deliberately. Add provider-level rate limiting/WAF controls, bounded payloads, bot protection, abuse telemetry, and a cost ceiling before merging; do not reintroduce a Server Action as a shortcut.
