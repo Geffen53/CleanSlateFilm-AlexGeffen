@@ -13,7 +13,7 @@ export const film = {
   facts: [
     ['Genre', 'Sci-fi, Thriller, Drama'],
     ['Running time', '15 minutes'],
-    ['Production company', 'Paper Plain Productions'],
+    ['Production company', 'Paper Plane Productions'],
     ['Production location', 'Los Angeles, California'],
     ['Aspect ratio', '16:9'],
     ['Audio format', '5.1 Surround Sound'],
