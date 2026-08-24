@@ -23,6 +23,7 @@ export type GalleryImage = {
 
 export type Festival = {
   name: string;
+  url?: string;
   location?: string;
   date: string;
   recognition: string;
