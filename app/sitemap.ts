@@ -8,6 +8,7 @@ const publicRoutes = [
   '/film',
   '/cast-crew',
   '/press',
+  '/show-times',
   '/creative-consultants',
   '/contact',
   '/accessibility',
