@@ -45,7 +45,7 @@ export default function ShowingsPage() {
           {screenings.map((screening) => (
             <article key={screening.name} className="overflow-hidden rounded-md bg-paper shadow-sm">
               <div className="relative aspect-[4/3] bg-[#eee9d8]">
-                {screening.url ? <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
+                {'url' in screening ? <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
                   <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />
                 </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />}
               </div>
