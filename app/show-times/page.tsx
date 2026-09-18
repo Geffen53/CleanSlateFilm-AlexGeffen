@@ -26,6 +26,14 @@ const screenings = [
     alt: 'Coronado Island Film Festival poster artwork',
     url: 'https://coronadofilmfest.com/',
   },
+  {
+    name: 'IULM Sogni Elettrici',
+    date: 'October 26–30, 2026',
+    time: 'Show time TBD',
+    location: 'IULM – Open Space, Via Carlo Bo 7, Milano, Lombardia 20143, Italy',
+    image: '/media/festivals/iulm-sogni-elettrici-2026.jpg',
+    alt: 'IULM Sogni Elettrici 2026 festival poster artwork',
+  },
 ] as const;
 
 export default function ShowingsPage() {
@@ -37,9 +45,9 @@ export default function ShowingsPage() {
           {screenings.map((screening) => (
             <article key={screening.name} className="overflow-hidden rounded-md bg-paper shadow-sm">
               <div className="relative aspect-[4/3] bg-[#eee9d8]">
-                <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
+                {screening.url ? <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
                   <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />
-                </a>
+                </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />}
               </div>
               <div className="p-5 sm:p-6">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Screening</p>
