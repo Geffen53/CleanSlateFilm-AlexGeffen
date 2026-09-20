@@ -11,11 +11,11 @@ export default function FestivalCard({ festival, surface = 'paper' }: FestivalCa
   const laurelLinkClass = 'block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current';
 
   const laurel = surface === 'navy' ? (
-    <Image src={festival.laurelLight} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={imageClass} />
+      <Image src={festival.laurelLight} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} ${festival.name === 'GenreBlast Film Festival' ? 'translate-y-px scale-110' : ''}`} />
   ) : (
     <>
-      <Image src={festival.laurelDark} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} dark:hidden ${festival.name === 'Brooklyn SciFi Film Festival' ? 'brightness-0' : ''}`} />
-      <Image src={festival.laurelLight} alt="" aria-hidden width={720} height={320} className={`${imageClass} hidden dark:block`} />
+      <Image src={festival.laurelDark} alt={`${festival.name} ${festival.recognition} laurel`} width={720} height={320} className={`${imageClass} dark:hidden ${festival.name === 'Brooklyn SciFi Film Festival' || festival.name === 'GenreBlast Film Festival' ? 'brightness-0' : ''} ${festival.name === 'GenreBlast Film Festival' ? 'translate-y-px scale-110' : ''}`} />
+      <Image src={festival.laurelLight} alt="" aria-hidden width={720} height={320} className={`${imageClass} hidden dark:block ${festival.name === 'GenreBlast Film Festival' ? 'translate-y-px scale-110' : ''}`} />
     </>
   );
 
