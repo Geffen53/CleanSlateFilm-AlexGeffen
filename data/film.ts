@@ -63,9 +63,9 @@ export const statements = [
 export const festivals: Festival[] = [
   { name: 'Midwest Weirdfest', url: 'https://www.midwestweirdfest.com/2026-winning-films', location: 'Eau Claire, Wisconsin', date: 'March 5–8, 2026', recognition: 'Award Winner', laurelDark: '/media/festivals/midwest-dark.png', laurelLight: '/media/festivals/midwest-light.png' },
   { name: 'BraveMaker Film Fest', url: 'https://bravemakerfilmfest.com/', location: 'Redwood City, California', date: 'July 8–13, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/bravemaker-dark.png', laurelLight: '/media/festivals/bravemaker-light.png' },
-  { name: 'GenreBlast Film Festival', url: 'https://www.genreblast.com/', date: 'September 3–6, 2026', recognition: 'Award Winner', laurelDark: '/media/festivals/genreblast-award.png', laurelLight: '/media/festivals/genreblast-award.png' },
+  { name: 'GenreBlast Film Festival', url: 'https://www.genreblast.com/', location: 'Winchester, Virginia', date: 'September 3–6, 2026', recognition: 'Award Winner', laurelDark: '/media/festivals/genreblast-award.png', laurelLight: '/media/festivals/genreblast-award.png' },
   { name: 'Brooklyn SciFi Film Festival', url: 'https://brooklynscififilmfest.com/2025-official-selections', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-light.png', laurelLight: '/media/festivals/brooklyn-dark.png' },
-  { name: 'Tees Valley International Film Festival', url: 'https://www.tviff.co.uk/', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-dark.png', laurelLight: '/media/festivals/tees-light.png' },
+  { name: 'Tees Valley International Film Festival', url: 'https://www.tviff.co.uk/', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-off-white.png', laurelLight: '/media/festivals/tees-off-white.png' },
 ];
 
 export const stills: GalleryImage[] = [
