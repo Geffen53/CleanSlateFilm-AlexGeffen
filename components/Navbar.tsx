@@ -29,8 +29,8 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/70 bg-paper/95 backdrop-blur-md">
-      <div className="page-shell flex h-14 items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-50 isolate border-b border-line/70 bg-paper/95 backdrop-blur-md">
+      <div className="page-shell relative z-10 flex h-14 items-center justify-between">
         <IntentLink href="/" aria-label="Clean Slate home" className="wordmark rounded-md px-2 py-1 text-[1.65rem] transition hover:bg-panel">
           <span className="block w-36 sm:w-44 lg:w-40">
             <OfficialTitle onLight priority sizes="10rem" />
@@ -53,14 +53,14 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="relative z-10 flex shrink-0 items-center gap-2 lg:hidden">
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-navigation"
             aria-label={open ? 'Close navigation' : 'Open navigation'}
-            className="grid h-11 w-11 place-items-center rounded-md transition hover:bg-panel"
+            className="grid h-11 w-11 touch-manipulation place-items-center rounded-md bg-paper/80 transition hover:bg-panel"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
