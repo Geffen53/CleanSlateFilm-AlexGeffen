@@ -37,7 +37,7 @@ export default function Navbar() {
           </span>
         </IntentLink>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
+        <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 xl:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.path || (link.path !== '/' && pathname.startsWith(`${link.path}/`));
             return (
@@ -53,7 +53,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="relative z-10 flex shrink-0 items-center gap-2 lg:hidden">
+        <div className="relative z-10 flex shrink-0 items-center gap-2 xl:hidden">
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -69,8 +69,8 @@ export default function Navbar() {
 
       {open ? (
         <>
-          <button type="button" aria-label="Close navigation" onClick={() => setOpen(false)} className="fixed inset-x-0 bottom-0 top-14 z-40 bg-black/35 lg:hidden" />
-          <nav id="mobile-navigation" aria-label="Mobile navigation" className="fixed right-0 top-14 z-50 h-[calc(100svh-3.5rem)] w-[min(100%,24rem)] overflow-y-auto border-l border-line bg-paper py-3 shadow-2xl lg:hidden">
+          <button type="button" aria-label="Close navigation" onClick={() => setOpen(false)} className="fixed inset-x-0 bottom-0 top-14 z-40 bg-black/35 xl:hidden" />
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="fixed right-0 top-14 z-50 h-[calc(100svh-3.5rem)] w-[min(100%,24rem)] overflow-y-auto border-l border-line bg-paper py-3 shadow-2xl xl:hidden">
             <div className="page-shell grid grid-cols-1 gap-1 pb-4">
               {NAV_LINKS.map((link) => (
                 <IntentLink
