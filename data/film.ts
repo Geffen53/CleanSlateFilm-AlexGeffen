@@ -66,6 +66,8 @@ export const festivals: Festival[] = [
   { name: 'GenreBlast Film Festival', url: 'https://www.genreblast.com/', location: 'Winchester, Virginia', date: 'September 3–6, 2026', recognition: 'Award Winner', laurelDark: '/media/festivals/genreblast-award.png', laurelLight: '/media/festivals/genreblast-award.png' },
   { name: 'Brooklyn SciFi Film Festival', url: 'https://brooklynscififilmfest.com/2025-official-selections', location: 'Brooklyn, New York', date: 'October 6–12, 2025', recognition: 'Official Selection', laurelDark: '/media/festivals/brooklyn-light.png', laurelLight: '/media/festivals/brooklyn-dark.png' },
   { name: 'Tees Valley International Film Festival', url: 'https://www.tviff.co.uk/', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-off-white.png', laurelLight: '/media/festivals/tees-off-white.png' },
+  { name: 'Coronado Island Film Festival', url: 'https://coronadofilmfest.com/', location: 'Coronado Island, California', date: 'November 4–8, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/coronado-island-official-selection.png', laurelLight: '/media/festivals/coronado-island-official-selection.png' },
+  { name: 'Sogni Elettrici / Electricdreams International Film Festival', location: 'Milano, Lombardia, Italy', date: 'October 26–30, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/sogni-elettrici-official-selection.png', laurelLight: '/media/festivals/sogni-elettrici-official-selection.png' },
 ];
 
 export const stills: GalleryImage[] = [
