@@ -68,6 +68,7 @@ export const festivals: Festival[] = [
   { name: 'Tees Valley International Film Festival', url: 'https://www.tviff.co.uk/', location: 'Stockton-on-Tees, U.K.', date: 'November 6–8, 2025', recognition: 'Award Nominee', laurelDark: '/media/festivals/tees-off-white.png', laurelLight: '/media/festivals/tees-off-white.png' },
   { name: 'Coronado Island Film Festival', url: 'https://coronadofilmfest.com/', location: 'Coronado Island, California', date: 'November 4–8, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/coronado-island-official-selection.png', laurelLight: '/media/festivals/coronado-island-official-selection.png' },
   { name: 'Sogni Elettrici / Electricdreams International Film Festival', location: 'Milano, Lombardia, Italy', date: 'October 26–30, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/sogni-elettrici-official-selection.png', laurelLight: '/media/festivals/sogni-elettrici-official-selection.png' },
+  { name: 'San Quentin Film Festival', location: 'San Quentin Rehabilitation Center, California', date: 'October 22–23, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/san-quentin-official-selection.png', laurelLight: '/media/festivals/san-quentin-official-selection.png' },
 ];
 
 export const stills: GalleryImage[] = [
