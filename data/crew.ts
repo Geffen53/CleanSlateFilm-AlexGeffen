@@ -129,7 +129,7 @@ export const crewDepartments: CrewDepartment[] = [
         name: 'Mike Boord',
         role: 'Special Effects',
         image: '/media/crew/mike-boord.jpg',
-        bio: 'Mike Boord is an acclaimed film and television post-production veteran. His extensive credits span hit series like Ozark, Black Bird, and The Sympathizer, alongside a Daytime Emmy nomination for The Young and the Restless. Beyond traditional editing, Boord specializes in advanced visual effects workflows, utilizing cutting-edge generative-video pipelines and AI-hybrid tools like ComfyUI and Flux for pre- and post-visualization. He brought this precise technical expertise to the dystopian sci-fi short film Clean Slate, serving as the visual effects artist to construct and elevate the project’s complex, high-concept narrative world.',
+        bio: 'Mike Boord is an acclaimed film and television post-production veteran. His extensive credits span hit series like Ozark, Black Bird, and The Sympathizer, alongside a Daytime Emmy nomination for The Young and the Restless. Beyond traditional editing, Boord specializes in advanced visual effects workflows for pre- and post-visualization. He brought his precise technical expertise to the dystopian sci-fi short film Clean Slate, serving as the visual effects artist to construct and elevate the project’s complex, high-concept narrative world.',
       },
     ],
   },
