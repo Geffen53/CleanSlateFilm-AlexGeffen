@@ -69,6 +69,7 @@ export const festivals: Festival[] = [
   { name: 'Coronado Island Film Festival', url: 'https://coronadofilmfest.com/', location: 'Coronado Island, California', date: 'November 4–8, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/coronado-island-official-selection.png', laurelLight: '/media/festivals/coronado-island-official-selection.png' },
   { name: 'Sogni Elettrici / Electricdreams International Film Festival', location: 'Milano, Lombardia, Italy', date: 'October 26–30, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/sogni-elettrici-official-selection.png', laurelLight: '/media/festivals/sogni-elettrici-official-selection.png' },
   { name: 'San Quentin Film Festival', location: 'San Quentin Rehabilitation Center, California', date: 'October 22–23, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/san-quentin-official-selection.png', laurelLight: '/media/festivals/san-quentin-official-selection.png' },
+  { name: 'Smodcastle Film Festival', location: 'Smodcastle Cinemas, Atlantic Highlands, New Jersey', date: 'November 5–8, 2026', recognition: 'Official Selection', laurelDark: '/media/festivals/smodcastle-official-selection-2026.png', laurelLight: '/media/festivals/smodcastle-official-selection-2026.png' },
 ];
 
 export const stills: GalleryImage[] = [

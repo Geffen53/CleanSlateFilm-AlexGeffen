@@ -34,6 +34,14 @@ const screenings = [
     image: '/media/festivals/iulm-sogni-elettrici-2026.jpg',
     alt: 'IULM Sogni Elettrici 2026 festival poster artwork',
   },
+  {
+    name: 'Smodcastle Film Festival',
+    date: 'November 5–8, 2026',
+    time: 'Show time TBD',
+    location: 'Smodcastle Cinemas, Atlantic Highlands, New Jersey',
+    image: '/media/festivals/smodcastle-official-selection-2026.png',
+    alt: 'Official Smodcastle Film Festival 2026 laurel',
+  },
 ] as const;
 
 export default function ShowingsPage() {
