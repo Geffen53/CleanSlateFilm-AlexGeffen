@@ -6,6 +6,10 @@ import FestivalCard from '@/components/FestivalCard';
 import PageIntro from '@/components/PageIntro';
 import { btsImages, festivals, film, stills } from '@/data/film';
 
+const pressFestivals = festivals.map((festival) => festival.name === 'Tees Valley International Film Festival'
+  ? { ...festival, laurelDark: '/media/festivals/tees-valley-2025-off-white.png' }
+  : festival);
+
 export const metadata: Metadata = { title: 'Press & Gallery', description: 'Press materials, film stills, behind-the-scenes photography and festival selections for Clean Slate.' };
 
 export default function PressPage() {
@@ -25,7 +29,7 @@ export default function PressPage() {
           </div>
         </div>
       </section>
-      <section className="py-9 md:py-12"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{festivals.map((festival) => <FestivalCard key={festival.name} festival={festival} />)}</div></div></section>
+      <section className="py-9 md:py-12"><div className="page-shell"><h2 className="section-title">Selections & recognition</h2><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{pressFestivals.map((festival) => <FestivalCard key={festival.name} festival={festival} />)}</div></div></section>
       <section id="gallery" className="render-deferred section-rule bg-panel py-9 md:py-12"><div className="page-shell"><h2 className="section-title mb-5">Film stills</h2><GalleryGrid images={stills} /></div></section>
       <section className="render-deferred py-9 md:py-12"><div className="page-shell"><h2 className="section-title mb-5">Behind the scenes</h2><GalleryGrid images={btsImages} /></div></section>
     </>

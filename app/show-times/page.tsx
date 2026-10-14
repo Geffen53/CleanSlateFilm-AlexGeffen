@@ -19,9 +19,9 @@ const screenings = [
   },
   {
     name: 'Coronado Island Film Festival',
-    date: 'November 4–8, 2026',
-    time: 'Show time TBD',
-    location: 'Coronado Island, California',
+    date: 'November 7, 2026',
+    time: '10:00 a.m.',
+    location: 'Nautilus Room, Coronado Island, California',
     image: '/media/festivals/coronado-island-film-festival.png',
     alt: 'Coronado Island Film Festival poster artwork',
     url: 'https://coronadofilmfest.com/',
@@ -36,11 +36,12 @@ const screenings = [
   },
   {
     name: 'Smodcastle Film Festival',
-    date: 'November 5–8, 2026',
-    time: 'Show time TBD',
+    date: 'November 7, 2026',
+    time: '9:00 p.m.',
     location: 'Smodcastle Cinemas, Atlantic Highlands, New Jersey',
-    image: '/media/festivals/smodcastle-official-selection-2026.png',
-    alt: 'Official Smodcastle Film Festival 2026 laurel',
+    image: '/media/festivals/smodcastle-5th-annual-2026.png',
+    alt: 'Smodcastle Cinemas 5th Annual Film Festival logo',
+    url: 'https://www.smodcastlecinemas.com/ticketing/621D6109-EF22-5F7B-11F369D1909F587C',
   },
 ] as const;
 
