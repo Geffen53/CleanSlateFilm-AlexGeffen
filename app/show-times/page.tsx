@@ -43,6 +43,15 @@ const screenings = [
     alt: 'Smodcastle Cinemas 5th Annual Film Festival logo',
     url: 'https://www.smodcastlecinemas.com/ticketing/621D6109-EF22-5F7B-11F369D1909F587C',
   },
+  {
+    name: 'San Quentin Film Festival',
+    date: 'October 22–24, 2026',
+    time: 'Show time TBD',
+    location: 'San Quentin Rehabilitation Center, Marin County, California',
+    image: '/media/festivals/san-quentin-official-selection-gold-2026.webp',
+    alt: 'San Quentin Film Festival 2026 official selection laurel',
+    url: 'https://www.sanquentinfilmfestival.com/',
+  },
 ] as const;
 
 export default function ShowingsPage() {
@@ -53,11 +62,11 @@ export default function ShowingsPage() {
         <div className="page-shell grid gap-5 md:grid-cols-2">
           {screenings.map((screening) => (
             <article key={screening.name} className="overflow-hidden rounded-md bg-paper shadow-sm">
-              <div className="relative aspect-[4/3] bg-[#eee9d8]">
+              {'image' in screening ? <div className={`relative aspect-[4/3] ${screening.name === 'San Quentin Film Festival' ? 'bg-[#1468d4]' : 'bg-[#eee9d8]'}`}>
                 {'url' in screening ? <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
-                  <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />
-                </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-contain" />}
-              </div>
+                  <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${screening.name === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />
+                </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${screening.name === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />}
+              </div> : null}
               <div className="p-5 sm:p-6">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Screening</p>
                 <h2 className="mt-2 font-display text-2xl leading-tight text-ink">{screening.name}</h2>
