@@ -62,10 +62,10 @@ export default function ShowingsPage() {
         <div className="page-shell grid gap-5 md:grid-cols-2">
           {screenings.map((screening) => (
             <article key={screening.name} className="overflow-hidden rounded-md bg-paper shadow-sm">
-              {'image' in screening ? <div className={`relative aspect-[4/3] ${screening.name === 'San Quentin Film Festival' ? 'bg-[#1468d4]' : 'bg-[#eee9d8]'}`}>
+              {'image' in screening ? <div className={`relative aspect-[4/3] ${String(screening.name) === 'San Quentin Film Festival' ? 'bg-[#1468d4]' : 'bg-[#eee9d8]'}`}>
                 {'url' in screening ? <a href={screening.url} target="_blank" rel="noreferrer" aria-label={`Visit ${screening.name} website`} className="block h-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-navy">
-                  <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${screening.name === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />
-                </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${screening.name === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />}
+                  <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${String(screening.name) === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />
+                </a> : <Image src={screening.image} alt={screening.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={`object-contain ${String(screening.name) === 'San Quentin Film Festival' ? 'scale-[0.88]' : ''}`} />}
               </div> : null}
               <div className="p-5 sm:p-6">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-muted">Screening</p>
