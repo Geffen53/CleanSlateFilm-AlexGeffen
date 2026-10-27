@@ -27,9 +27,9 @@ const screenings = [
     url: 'https://coronadofilmfest.com/',
   },
   {
-    name: 'IULM Sogni Elettrici',
-    date: 'October 26–30, 2026',
-    time: 'Show time TBD',
+    name: 'IULM Sognielettrici',
+    date: 'October 29, 2026',
+    time: '9:00 p.m. CET',
     location: 'IULM – Open Space, Via Carlo Bo 7, Milano, Lombardia 20143, Italy',
     image: '/media/festivals/iulm-sogni-elettrici-2026.jpg',
     alt: 'IULM Sogni Elettrici 2026 festival poster artwork',
